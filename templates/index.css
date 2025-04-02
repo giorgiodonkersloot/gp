@@ -41,9 +41,6 @@ body {
 .account-buttons button:hover {
     background-color: #0056b3;
 }
-.account-buttons #preferiti:hover {
-    background-color: #e6d219;
-}
 
 
 button {
