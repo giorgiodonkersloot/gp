@@ -51,6 +51,25 @@
         .account-buttons button:hover {
             background-color: #0056b3;
         }
+        #preferiti  {
+            margin-bottom: 20px;
+        }
+        #preferiti button {
+            width: 180px;
+            height: 50px;
+            font-size: 16px;
+            background-color: #d8e619;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            margin: 10px;
+        }
+        #preferiti button:hover {
+            background-color: #e6d219;
+        }
+
+
         button {
             width: 200px;
             height: 70px;
@@ -122,9 +141,6 @@
         <img src="{{ url_for('static', filename='logo.jpg') }}" alt="Logo Deplano" width="500">
         <br><br>
         <div style="background-color: yellow; color: black; border: 2px solid orange; padding: 15px; margin: 20px 0; font-size: 20px; font-weight: bold; text-align: center;">
-            Attenzione: Prossimamente sul sito sarà disponibile la possibilità di creare un account! Al momento i pulsanti "Accedi" e "Registrati" non funzionano.
-        </div>
-        <div style="background-color: yellow; color: black; border: 2px solid orange; padding: 15px; margin: 20px 0; font-size: 20px; font-weight: bold; text-align: center;">
             Attenzione: Il sito è ancora in fase di sviluppo quindi non raggiunge le sue potenzialità ed è limitato al semplice funzionamento.
         </div>
         <button onclick="window.location.href='/survey'">Trova la destinazione in Europa</button>
@@ -132,16 +148,8 @@
         <br><br/>
 
         <div class="account-buttons">
-            {% if current_user.is_authenticated %}
-                <button onclick="window.location.href='/dashboard'">Gestisci account</button>
-            {% else %}
-                <button onclick="window.location.href='/login/google'">Accedi</button>
-            {% endif %}
-            {% if current_user.is_authenticated %}
-                <button onclick="window.location.href='/preferiti'">Preferiti</button>
-            {% else %}
-                <button onclick="window.location.href='/register'">Registrati</button>
-            {% endif %}
+            <button onclick="window.location.href='/preferiti'" id="preferiti">Preferiti &#9733; </button>
+            <button onclick="window.location.href='/register'">non definito</button>
             <button onclick="window.location.href='/about'">About Us</button>
             <button onclick="window.location.href='/contact'">Contattaci</button>
         </div>
