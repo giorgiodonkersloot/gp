@@ -12,7 +12,6 @@ from wtforms.validators import DataRequired, Email, EqualTo, Length
 
 app = Flask(__name__)
 app.secret_key = 'ISA&Isa1221'  # Sostituisci con una chiave sicura
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Configurazione database (usiamo SQLite per semplicità)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite3'
