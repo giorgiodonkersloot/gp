@@ -1202,40 +1202,37 @@
         {% endif %}
 
         <div class="navigation-buttons">
-            <!-- Bottone per tornare alla home -->
-            <button type="button" onclick="window.history.back()">Torna alla home</button>
-            </a>
-            <!-- Bottone per aggiungere/rimuovere dai preferiti -->
+            <button onclick="window.location.href='/'">Torna alla Home</button>
             <button id="favorite-btn" onclick="toggleFavorite('{{ city }}')">
-                {% if is_fav %}
-                    ★ Preferito
-                {% else %}
-                    ☆ Aggiungi ai Preferiti
-                {% endif %}
+              {% if is_fav %}
+                ★ Preferito
+              {% else %}
+                ☆ Aggiungi ai Preferiti
+              {% endif %}
             </button>
+          </div>
         </div>
-    </div>
-
-    <script>
-        function toggleFavorite(city) {
+      
+        <script>
+          function toggleFavorite(city) {
             fetch('{{ url_for("toggle_favorite") }}', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ city: city })
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ city: city })
             })
             .then(response => response.json())
             .then(data => {
-                const btn = document.getElementById('favorite-btn');
-                if (data.status === 'added') {
-                    btn.innerHTML = '★ Preferito';
-                } else if (data.status === 'removed') {
-                    btn.innerHTML = '☆ Aggiungi ai Preferiti';
-                }
+              const btn = document.getElementById('favorite-btn');
+              if (data.status === 'added') {
+                btn.innerHTML = '★ Preferito';
+              } else if (data.status === 'removed') {
+                btn.innerHTML = '☆ Aggiungi ai Preferiti';
+              }
             })
             .catch(error => console.error('Error:', error));
-        }
-    </script>
+          }
+        </script> 
 </body>
 </html>
