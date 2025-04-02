@@ -12,6 +12,7 @@ from wtforms.validators import DataRequired, Email, EqualTo, Length
 
 app = Flask(__name__)
 app.secret_key = 'ISA&Isa1221'  # Sostituisci con una chiave sicura
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Configurazione database (usiamo SQLite per semplicità)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite3'
@@ -361,6 +362,26 @@ def localsurvey():
 @app.route('/destination/<city>')
 def destination(city):
     return render_template('destination.html', city=city)
+
+@app.route('/toggle_favorite', methods=['POST'])
+def toggle_favorite():
+    data = request.get_json()
+    city = data.get('city')
+    favorites = session.get('favorites', [])
+    if city in favorites:
+        favorites.remove(city)
+        status = 'removed'
+    else:
+        favorites.append(city)
+        status = 'added'
+    session['favorites'] = favorites
+    return jsonify({'status': status})
+
+@app.route('/preferiti')
+def preferiti():
+    favorites = session.get('favorites', [])
+    return render_template('preferiti.html', favorites=favorites)
+
 
 @app.route('/about')
 def about():

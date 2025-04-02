@@ -68,7 +68,13 @@
     <div class="container">
         <h1>Abbiamo scelto per te: {{ city }}</h1>
         <p>Qui troverai tutte le informazioni più importanti.</p>
-
+        <button id="favorite-btn" onclick="toggleFavorite('{{ city }}')">
+            {% if is_fav %}
+              ★ Preferito
+            {% else %}
+              ☆ Aggiungi ai Preferiti
+            {% endif %}
+          </button>
         {% if city == "Milano" %}
             <h2>Milano</h2>
             <p>Milano è la capitale della moda, con tanti luoghi storici e moderni da scoprire.</p>
@@ -1201,8 +1207,43 @@
             <p style="font-size: 20px;">€COST</p>
             <br>
         {% endif %}
-        
-        <button onclick="window.location.href='/'">Indietro</button>
+
+        <div class="navigation-buttons">
+            <!-- Bottone per tornare alla home -->
+            <a href="{{ url_for('home') }}">
+                <button>Torna alla Home</button>
+            </a>
+            <!-- Bottone per aggiungere/rimuovere dai preferiti -->
+            <button id="favorite-btn" onclick="toggleFavorite('{{ city }}')">
+                {% if is_fav %}
+                    ★ Preferito
+                {% else %}
+                    ☆ Aggiungi ai Preferiti
+                {% endif %}
+            </button>
+        </div>
     </div>
+
+    <script>
+        function toggleFavorite(city) {
+            fetch('{{ url_for("toggle_favorite") }}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ city: city })
+            })
+            .then(response => response.json())
+            .then(data => {
+                const btn = document.getElementById('favorite-btn');
+                if (data.status === 'added') {
+                    btn.innerHTML = '★ Preferito';
+                } else if (data.status === 'removed') {
+                    btn.innerHTML = '☆ Aggiungi ai Preferiti';
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
 </body>
 </html>
