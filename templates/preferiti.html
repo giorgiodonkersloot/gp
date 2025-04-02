@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <title>Le tue destinazioni preferite</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
-    <style>
-      html, body {
+  <meta charset="UTF-8">
+  <title>Le tue destinazioni preferite</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/preferiti.css') }}">
+  <style>
+    html, body {
     margin: 0;
     padding: 0;
     min-height: 100%;
@@ -31,18 +31,14 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
-
 h1 {
     color: #000;
     font-size: 36px;
 }
-
 p {
-    font-size: 22px;
+    font-size: 25px;
     color: #000;
 }
-
-/* Lista Preferiti */
 .favorites-list {
     list-style: none;
     padding: 0;
@@ -55,8 +51,14 @@ p {
     margin: 10px 0;
     border-radius: 8px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-
+.favorites-list li a {
+    text-decoration: none;
+    color: #007BFF;
+}
 .toggle-fav {
     background-color: #dc3545;
     color: white;
@@ -68,23 +70,7 @@ p {
 }
 .toggle-fav:hover {
     background-color: #c82333;
-  }
-/* Bottone per rimuovere dai preferiti */
-.remove-favorite {
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    padding: 10px 15px;
-    font-size: 16px;
-    margin-left: 15px;
 }
-.remove-favorite:hover {
-    background-color: #c82333;
-}
-
-/* Bottone per tornare alla Home */
 .back-home {
     background-color: #4CAF50;
     color: white;
@@ -94,28 +80,53 @@ p {
     padding: 15px 25px;
     font-size: 18px;
     margin-top: 20px;
-    display: inline-block;
 }
 .back-home:hover {
     background-color: #45a049;
 }
 
-    </style>
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Le tue destinazioni preferite</h1>
-        {% if favorites %}
-            <ul>
-                {% for city in favorites %}
-                    <li><a href="{{ url_for('destination', city=city) }}">{{ city }}</a></li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <p>Nessuna destinazione aggiunta ai preferiti.</p>
-        {% endif %}
-        <br>
-        <a href="{{ url_for('home') }}">Torna alla Home</a>
-    </div>
+  <div class="container">
+    <h1>Le tue destinazioni preferite</h1>
+    {% if favorites %}
+      <ul class="favorites-list">
+        {% for city in favorites %}
+          <li id="fav-{{ city|replace(' ', '_') }}">
+            <span class="city-name">
+              <a href="{{ url_for('destination', city=city) }}">{{ city }}</a>
+            </span>
+            <button class="toggle-fav" onclick="toggleFavorite('{{ city }}', this)">★</button>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>Nessuna destinazione preferita.</p>
+    {% endif %}
+    <button class="back-home" onclick="window.history.back()">Torna alla Home</button>
+
+  </div>
+  
+  <script>
+    function toggleFavorite(city, btnElement) {
+      fetch('{{ url_for("toggle_favorite") }}', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ city: city })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.status === 'removed') {
+          // Rimuoviamo l'elemento dalla lista
+          const li = btnElement.parentNode;
+          li.parentNode.removeChild(li);
+        }
+      })
+      .catch(error => console.error('Error:', error));
+    }
+  </script>
 </body>
 </html>

@@ -35,75 +35,8 @@ class User(UserMixin, db.Model):
 def load_user(user_id):
     return User.query.get(int(user_id))
 
-# ---------------------------
-# Form di Registrazione e Login
-# ---------------------------
-class RegistrationForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired(), Length(min=3, max=150)])
-    email = StringField('Email', validators=[DataRequired(), Email()])
-    password = PasswordField('Password', validators=[DataRequired(), Length(min=6)])
-    confirm_password = PasswordField('Conferma Password', validators=[DataRequired(), EqualTo('password')])
-    newsletter = BooleanField('Iscriviti alla Newsletter')
-    submit = SubmitField('Registrati')
 
-class LoginForm(FlaskForm):
-    email = StringField('Email', validators=[DataRequired(), Email()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    remember = BooleanField('Ricordami')
-    submit = SubmitField('Accedi')
 
-# ---------------------------
-# Rotte per autenticazione
-# ---------------------------
-@app.route('/register', methods=['GET', 'POST'])
-def register():
-    form = RegistrationForm()
-    if form.validate_on_submit():
-        hashed_password = generate_password_hash(form.password.data)
-        new_user = User(
-            username=form.username.data,
-            email=form.email.data,
-            password=hashed_password,
-            newsletter=form.newsletter.data
-        )
-        db.session.add(new_user)
-        db.session.commit()
-
-        # QUI: Puoi aggiungere la logica per inviare una notifica via email se l'utente si iscrive alla newsletter
-
-        flash("Registrazione avvenuta con successo! Ora puoi accedere.", "success")
-        return redirect(url_for('login'))
-    return render_template('register.html', form=form)
-
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    form = LoginForm()
-    if form.validate_on_submit():
-        user = User.query.filter_by(email=form.email.data).first()
-        if user and check_password_hash(user.password, form.password.data):
-            login_user(user, remember=form.remember.data)
-            flash("Accesso effettuato con successo!", "success")
-            return redirect(url_for('dashboard'))
-        else:
-            flash("Credenziali non valide", "danger")
-    return render_template('login.html', form=form)
-
-@app.route('/logout')
-@login_required
-def logout():
-    logout_user()
-    flash("Sei stato disconnesso.", "info")
-    return redirect(url_for('login'))
-
-@app.route('/dashboard')
-@login_required
-def dashboard():
-    return render_template('dashboard.html')
-
-# ---------------------------
-# Funzionalità esistenti (Sondaggi, Destinazioni, Contatti)
-# ---------------------------
-# Destinazioni con punteggi assegnati
 destinations = {
     "Pavia": 0,
     "Milano": 0,

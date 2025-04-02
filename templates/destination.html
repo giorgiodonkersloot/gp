@@ -1202,7 +1202,8 @@
         {% endif %}
 
         <div class="navigation-buttons">
-            <button onclick="window.location.href='/'">Torna alla Home</button>
+            <button onclick="window.history.back()">Torna alla Home</button>
+            
             <button id="favorite-btn" onclick="toggleFavorite('{{ city }}')">
               {% if is_fav %}
                 ★ Preferito
@@ -1233,6 +1234,6 @@
             })
             .catch(error => console.error('Error:', error));
           }
-        </script> 
+        </script>
 </body>
 </html>
