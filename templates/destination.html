@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Destinazione: {{ city }}</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+            /* Evita che il background si ripeta */
+            background-repeat: no-repeat;
+        }
+        body {
+            display: flex;
+            justify-content: center;  /* Centra orizzontalmente */
+            align-items: center;  /* Centra verticalmente */
+            height: 100vh;  /* Occupa tutta la finestra */
+            margin: 0;  /* Rimuove i margini predefiniti */
+            background: linear-gradient(45deg, #080742, #2d0f7e, #8735f3, #ae31b3, #c447c9);
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .container {
+            text-align: center;
+            width: 80%;
+            max-width: 1000px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: auto; /* Centra il contenitore */
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 200px;
+            height: 50px;
+            border-radius: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        img {
+            display: block;
+            margin: 10px auto;
+        }
+
+        ul {
+            list-style-position: inside;
+            text-align: left;
+            display: inline-block;
+            font-size: 20px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Abbiamo scelto per te: {{ city }}</h1>
+        <p>Qui troverai tutte le informazioni più importanti.</p>
+
+        {% if city == "Milano" %}
+            <h2>Milano</h2>
+            <p>Milano è la capitale della moda, con tanti luoghi storici e moderni da scoprire.</p>
+            <ul>
+                <li>Duomo di Milano</li>
+                <li>Galleria Vittorio Emanuele II</li>
+                <li>Pinacoteca di Brera</li>
+            </ul>
+        {% endif %}
+
+        {% if city == "Roma" %}
+            <h2>Roma</h2>
+            <p style="font-size: 20px;"> Roma, la Città Eterna, offre un viaggio unico nella storia con monumenti iconici come il Colosseo, il Pantheon e i Fori Imperiali. Gli studenti possono esplorare la magnificenza della civiltà romana, visitare musei ricchi di reperti e scoprire il patrimonio artistico del Vaticano. La città è un'aula a cielo aperto, perfetta per approfondire storia, arte e cultura in modo coinvolgente. Inoltre, le sue piazze e fontane offrono un'esperienza indimenticabile tra bellezza e tradizione.</p>
+            
+            <img src="{{ url_for('static', filename='roma1.jpg') }}" alt="Roma" width="500">
+            
+            <h3>Monumenti e attrazioni principali:</h3>
+            <ul>
+                <li><b>Colosseo</b> <p>L’anfiteatro più famoso del mondo, simbolo della grandezza di Roma antica.</p></li>
+                <li><b>Fori Imperiali</b> <p>Il cuore politico ed economico dell’antica Roma, ricco di rovine affascinanti.</p></li>
+                <li><b>Pantheon</b> <p>Un capolavoro architettonico con la sua maestosa cupola e la storia millenaria.</p></li>
+                <li><b>Fontana di Trevi</b> <p>Una delle fontane più celebri, perfetta per scoprire leggende e tradizioni.</p></li>
+                <li><b>Basilica di San Pietro</b> <p> Un’icona del cristianesimo, con opere d’arte inestimabili e la maestosità della piazza.</p></li>
+                <li><b>Piazza Navona</b> <p>Un elegante spazio barocco, animato da artisti di strada e ricco di storia.</p></li>
+            </ul>
+
+            <img src="{{ url_for('static', filename='roma2.jpg') }}" alt="Roma" width="900">
+            <br>
+
+            <h3>Musei famosi:</h3>
+            <ul>
+                <li><b>Musei Vaticani</b> <p>Opere d'arte come la Cappella Sistina e le Stanze di Raffaello.</p></li>
+                <li><b>Museo Nazionale Romano</b> <p>Reperti archeologici che raccontano la Roma antica.</p></li>
+                <li><b>Museo di Zoologia</b> <p>Esposizioni sulla biodiversità e la fauna del pianeta.</p></li>
+            </ul>
+            <br>
+
+            <img src="{{ url_for('static', filename='roma3.jpg') }}" alt="Roma" width="500">
+            <img src="{{ url_for('static', filename='roma4.jpg') }}" alt="Roma" width="500">
+            
+            <h2>Costo stimato per 7 Giorni:</h2>
+            <p style="font-size: 20px;">€695 per studente</p>
+            <br>
+        {% endif %}
+
+        {% if city == "Amsterdam" %}
+            <h2>Amsterdam</h2>
+            <p style="font-size: 20px;">Amsterdam è una città affascinante con i suoi canali storici, musei di fama mondiale come il Rijksmuseum e la Casa di Anna Frank, e un forte spirito innovativo. Offre un perfetto mix di cultura, storia e sostenibilità, grazie alla sua rete di biciclette e alle moderne politiche ambientali. Ideale per le scuole, permette di esplorare arte, scienza e società in un contesto accogliente e sicuro.</p>
+            
+            <img src="{{ url_for('static', filename='amsterdam1.jpg') }}" alt="Roma" width="500">
+            
+            <h3>Monumenti e attrazioni principali:</h3>
+            <ul>
+                <li><b>I Canali di Amsterdam</b> <p>Patrimonio UNESCO, rappresentano la struttura urbanistica unica della città.</p></li>
+                <li><b>Palazzo Reale di Amsterdam</b> <p>Imponente edificio del XVII secolo in Piazza Dam</p></li>
+                <li><b>Chiesa Oude Kerk</b> <p>La chiesa più antica di Amsterdam, con splendide vetrate e architettura gotica.</p></li>
+                
+            </ul>
+
+            <img src="{{ url_for('static', filename='amsterdam2.jpg') }}" alt="Roma" width="900">
+            <br>
+
+            <h3>Musei famosi:</h3>
+            <ul>
+                <li><b>Rijksmuseum </b> <p>Museo nazionale con capolavori di Rembrandt, Vermeer e arte olandese.</p></li>
+                <li><b>Van Gogh Museum</b> <p>Dedicato alla vita e alle opere di Van Gogh</p></li>
+                <li><b>NEMO Science Museum</b> <p>Museo interattivo sulla scienza, perfetto per studenti </p></li>
+                <li><b>Casa di Anna Frank</b> <p>Museo storico che racconta la vita di Anna Frank</p></li>
+                <li><b>Moco Museum</b> <p>Un museo di arte contemporanea e street art, con opere di Banksy e altri artisti moderni</p></li>
+            </ul>
+            <br>
+
+            <img src="{{ url_for('static', filename='amsterdam3.jpg') }}" alt="Roma" width="500">
+            <img src="{{ url_for('static', filename='amsterdam4.jpg') }}" alt="Roma" width="500">
+            
+            <h2>Costo stimato per 3/4 Giorni:  </h2>
+            <p style="font-size: 20px;">MIN: €400-450 NORMALE: €660</p>
+            <br>
+        {% endif %}
+
+        {% if city == "Utrecht" %}
+            <h2>Utrecht</h2>
+            <p style="font-size: 20px;">Utrecht, la quarta città più grande dei Paesi Bassi, è una località vivace e piena di vita che ospita un’antica Università e un ampio patrimonio storico. La città attraversata dal fiume Reno vanta un centro dinamico e molto attivo, specialmente per la presenza di vari musei, teatri e gallerie d’arte. L’afflusso di turisti è basso e questo offre un'esperienza full immersion in una delle città più ricche culturalmente in olanda</p>
+            
+            <img src="{{ url_for('static', filename='utrecht1.jpg') }}" alt="Roma" width="500">
+            
+            <h3>Monumenti e attrazioni principali:</h3>
+            <ul>
+                <li><b>I resti del passato romano</b> <p>invece, sono stati rinvenuti sotto la cattedrale</p></li>
+                <li><b>l’Oudegracht e il Nieuwegracht</b> <p></p></li>
+                <li><b>Il Duomo di Utrecht</b> <p>è il principale edificio religioso della città</p></li>
+                <li><b>Domtoren, la Torre del Duomo</b> <p>LDESC</p></li>
+                <li><b>Università di Utrecht</b> <p>una delle migliori università in europa</p></li>
+
+            </ul>
+
+            <img src="{{ url_for('static', filename='utrecht2.jpg') }}" alt="Roma" width="900">
+            <br>
+
+            <h3>Musei famosi:</h3>
+            <ul>
+                <li><b>DOMunder</b> <p>Visita alle rovine romane, sotto la cattedrale della città</p></li>
+                <li><b>Centraal Museum.</b> <p></p></li>
+                <li><b>Museo ferroviario</b> <p></p></li>
+                <li><b>Castello De Haar</b> <p></p></li>
+                <li><b>Giro per i canali</b> <p></p></li>
+            </ul>
+            <br>
+
+            <img src="{{ url_for('static', filename='utrecht3.jpg') }}" alt="Roma" width="500">
+            <img src="{{ url_for('static', filename='utrecht4.jpg') }}" alt="Roma" width="500">
+            
+            <h2>Costo stimato per 3/4 Giorni:</h2>
+            <p style="font-size: 20px;">€400-450 per studente</p>
+            <br>
+        {% endif %}
+        
+        {% if city == "Parigi" %}
+            <h2>Parigi</h2>
+            <p style="font-size: 20px;">Parigi, la capitale francese, è uno dei centri globali per arte, moda, cibo e cultura. Potrete vedere le rive verdi della Senna, meravigliosi edifici in ferro e pietra battuta e ogni tipo di negozi e locali, famosissimi sono anche i café. Ancora più famosi sono i meravigliosi edifici storici come la Tour Eiffel, l’Arco di Trionfo, il Louvre, accompagnati da musei di fama internazionale come il museo del Louvre, il Musee Rodin e anche il Museo D’Orsay.
+            </p>
+            
+            <img src="{{ url_for('static', filename='parigi1.jpg') }}" alt="Roma" width="500">
+            
+            <h3>Monumenti e attrazioni principali:</h3>
+            <ul>
+                <li><b>Torre Eiffel</b> <p> Edificio spettacolare in ferro di fama internazionale</p></li>
+                <li><b>Cattedrale di Notre Dame</b> <p> Cattedrale in stile gotico con spettacolari sculture e coloratissime vetrate</p></li>
+                <li><b>Giardini del Lussemburgo</b> <p> Giardino tranquillo situato nel quartiere latino con fontane storiche</p></li>
+                <li><b>Arco di trionfo</b> <p>Omaggio monumentale agli eroi nazionali e punto di riferimento che permette una vista panoramica della città.</p></li>
+                <li><b>Basilica di Montmartre</b> <p>Basilica storica nota per le sue spettacolari vetrate e cappelle.
+                </p></li>
+                <li><b>Le Marais</b> <p>Quartiere storico pieno di boutique pittoresche, café e ristoranti.</p></li>
+
+            </ul>
+
+            <img src="{{ url_for('static', filename='parigi2.jpg') }}" alt="Roma" width="900">
+            <br>
+
+            <h3>Musei famosi:</h3>
+            <ul>
+                <li><b>Museo del Louvre</b> <p>Museo iconico con opere d’arte di fama mondiale, che contiene anche la famosa Gioconda.</p></li>
+                <li><b>Museo d’Orsay </b> <p>Ex-stazione ferroviaria storica trasformata in un museo d’arte impressionista e post-impressionista</p></li>
+                <li><b>Reggia di Versailles</b> <p> Edificio storico e simbolo politico dell’ancien régime</p></li>
+              
+            </ul>
+            <br>
+
+            <img src="{{ url_for('static', filename='parigi3.jpg') }}" alt="Roma" width="500">
+            <img src="{{ url_for('static', filename='parigi4.jpg') }}" alt="Roma" width="500">
+            
+            <h2>Costo stimato per 4 Giorni:</h2>
+            <p style="font-size: 20px;">500 Euro in sù per studente</p>
+            <br>
+        {% endif %}
+        
+        {% if city == "Nizza" %}
+            <h2>Nizza</h2>
+            <p style="font-size: 20px;">Situata nella costa Azzurra, Nizza è una città sempre in movimento e in festa. Famosa per il suo multiculturalismo, panorama artistico e storia millenaria. La bella città, l’architettura belle époque, i musei d’arte sono solo una piccola parte delle cose che si possono vedere a Nizza. Conveniente per un gruppo di studenti sarebbe la French Riviera Pass, che permette l’ingresso gratuito ai principali siti turistici e attività, non solo a Nizza, ma anche nel resto della Costa Azzurra.</p>
+            
+            <img src="{{ url_for('static', filename='nizza1.jpg') }}" alt="Roma" width="500">
+            
+            <h3>Monumenti e attrazioni principali:</h3>
+            <ul>
+                <li><b>Vieux Nice</b> <p> la città vecchia, piena di piccole viuzze color pastello con una moltitudine di negozi vari.</p></li>
+                <li><b>Place Massena</b> <p>Piazza circondata da stupendi palazzi ad arcate color pastello</p></li>
+              
+
+            </ul>
+
+            <img src="{{ url_for('static', filename='nizza2.jpg') }}" alt="Roma" width="900">
+            <br>
+
+            <h3>Musei famosi:</h3>
+            <ul>
+                <li><b>Museo Matisse</b> <p> Magnifico palazzo residenziale della seconda metà del ‘600</p></li>
+                <li><b>Musée du Palais Lascaris</b> <p>Nella città vecchia di Nizza sono custoditi molti gioielli nascosti</p></li>
+                <li><b>Museo di Villa Massena</b> <p> Costruita durante la Belle Epoque</p></li>
+                <li><b>Cathédrale Saint-Nicolas de Nice</b> <p>Chiesa che riprende la Cattedrale di San Basilio di Mosca</p></li>
+
+            </ul>
+            <br>
+
+            <img src="{{ url_for('static', filename='nizza3.jpg') }}" alt="Roma" width="500">
+            <img src="{{ url_for('static', filename='nizza4.jpg') }}" alt="Roma" width="500">
+            
+            <h2>Costo stimato al Giorno:</h2>
+            <p style="font-size: 20px;">€57</p>
+            <br>
+        {% endif %}
+
+        {% if city == "Montpellier" %}
+            <h2>Montpellier</h2>
+            <p style="font-size: 20px;">Città gioiosa e solare, con una vivace vita culturale e un magnifico centro storico, contiene tutte le caratteristiche di una città mediterranea. Data la carenza di industrie, la città ha puntato il suo interesse su studenti, cultura e riqualificazione urbana. Architetti di fama mondiale arricchiscono i nuovi quartieri con edifici strepitosi. Nel centro storico potrete trovare la cattedrale , il mercato coperto, ristoranti e negozi. Montpellier incanta i visitatori da anni grazie alle sue spiagge e le corse dei tori camarghesi.
+            </p>
+            
+            <img src="{{ url_for('static', filename='montpellier1.jpg') }}" alt="Roma" width="500">
+            
+            <h3>Monumenti e attrazioni principali:</h3>
+            <ul>
+                <li><b>L'Écusson</b> <p>Il quartiere più noto e vivace di Montpellier</p></li>
+                <li><b>Place de la Comédie</b> <p> Il cuore del centro storico, si può osservare al centro la fontana delle tre grazie</p></li>
+                <li><b>Cattedrale di Montpellier</b> <p>Con le sue caratteristiche torri rotonde e la sua originale e colossale architettura gotica</p></li>
+                <li><b>Quartiere Antigone</b> <p>Entrando il quartiere, sembrerà di essere in una città completamente diversa</p></li>
+            </ul>
+
+            <img src="{{ url_for('static', filename='montpellier2.jpg') }}" alt="Roma" width="900">
+            <br>
+
+            <h3>Musei famosi:</h3>
+            <ul>
+                <li><b>Museo Fabre</b> <p> Principale museo d’arte di Montpellier, è una delle più grandi collezioni di dipinti francesi fuori Parigi</p></li>
+                <li><b>Museo di Anatomia</b> <p>Nella facoltà di medicina di Montpellier si nasconde un luogo eccezionale</p></li>
+                <li><b>Halles Laissac</b> <p> questo mercato coperto è una vera e propria opera d’arte</p></li>
+                <li><b>Chateau de Flaugergues</b> <p>Il castello di Flaugergues, di proprietà del conte e contessa Henri de Colbert</p></li>
+            </ul>
+            <br>
+
+            <img src="{{ url_for('static', filename='montpellier3.jpg') }}" alt="Roma" width="500">
+            <img src="{{ url_for('static', filename='montpellier4.jpg') }}" alt="Roma" width="500">
+            
+            <h2>Costo stimato per 7 Giorni:</h2>
+        <p style="font-size: 20px;">€?</p>
+            <br>
+        {% endif %}
+
+        {% if city == "Marsiglia" %}
+            <h2>Marsiglia</h2>
+            <p style="font-size: 20px;">Marsiglia è la città più antica di tutta Francia, unica non solo per la tua multietnicità che nel corso dei 2600 anni della tua storia ha creato un posto assolutamente diverso da tutto il resto del paese. Qui potrete vedere le spettacolari case color albicocca, grano e mandorla, la fusione di moltissime culture e le sue strade affollate.
+            </p>
+            
+            <img src="{{ url_for('static', filename='marsiglia1.jpg') }}" alt="Roma" width="500">
+            
+            <h3>Monumenti e attrazioni principali:</h3>
+            <ul>
+                <li><b>Porto di Marsiglia</b> <p>realizzato in un'insenatura e situato fra i due forti di Saint-Jean e Saint-Nicolas. Nel porto si può visitare anche l'affollatissimo e coloratissimo mercato del pesce.
+                </p></li>
+                <li><b>Cattedrale di Marsiglia</b> <p>Alta, imponente con una facciata bianca e nera.</p></li>
+                <li><b>Le Panier</b> <p> Quartiere caratteristico,  con numerosi negozi multietnici e qualsiasi tipo di attività commerciale.
+                </p></li>
+                <li><b>Chiesa La Vieille Charité</b> <p>Magnifico esempio di architettura civile barocca munita di un grande museo.
+                </p></li>
+
+            </ul>
+
+            <img src="{{ url_for('static', filename='marsiglia2.jpg') }}" alt="Roma" width="900">
+            <br>
+
+            <h3>Musei famosi:</h3>
+            <ul>
+                <li><b>Museo MuCEM</b> <p>Museo dell' arte e antropologia dei popoli mediterranei con una grande collezione di oggetti.
+                </p></li>
+                
+            </ul>
+            <br>
+
+            <img src="{{ url_for('static', filename='marsiglia3.jpg') }}" alt="Roma" width="500">
+            <img src="{{ url_for('static', filename='marsiglia4.jpg') }}" alt="Roma" width="500">
+            
+            <h2>Costo stimato per 4 Giorni:</h2>
+            <p style="font-size: 20px;">€360</p>
+            <br>
+        {% endif %}
+
+        {% if city == "Lione" %}
+            <h2>Lione</h2>
+            <p style="font-size: 20px;">Situata tra le Alpi e il Massiccio Centrale Francese, Lione vanta il quartiere rinascimentale in Europa dopo Venezia. Terza città più grande della Francia, è una metropoli ricca di storia e cultura: potrete trovare perfino teatri d'epoca Romana.
+            </p>
+            
+            <img src="{{ url_for('static', filename='lione1.jpg') }}" alt="Roma" width="500">
+            
+            <h3>Monumenti e attrazioni principali:</h3>
+            <ul>
+                <li><b>Vieux Lyon</b> <p>uno dei quartieri storici della città, riconosciuto persino come patrimonio dell' UNESCO.</p></li>
+                <li><b>Cattedrale di Lione</b> <p>affascinante è il suo orologio astronomico, con ancora tutti e meccanismi originali.
+                </p></li>
+                <li><b>Notre-Dame de Fourvière</b> <p>La basilica di Fourvière è simbolo di Lione e attira ogni anno milioni di pellegrini.</p></li>
+            </ul>
+
+            <img src="{{ url_for('static', filename='lione2.jpg') }}" alt="Roma" width="900">
+            <br>
+
+            <h3>Musei famosi:</h3>
+            <ul>
+                <li><b>Museo Gallo-Romano di Fourvière</b> <p>A Lione sono custoditi due teatri gallo-romani</p></li>
+                <li><b>Museo del Cinema e delle Miniature</b> <p>In questi museo sono presentate tutte le tecniche e effetti speciali usati nella produzione di un film</p></li>
+            </ul>
+            <br>
+
+            <img src="{{ url_for('static', filename='lione3.jpg') }}" alt="Roma" width="500">
+            <img src="{{ url_for('static', filename='lione4.jpg') }}" alt="Roma" width="500">
+            
+            <h2>Costo stimato per giorno:</h2>
+            <p style="font-size: 20px;">€ 50/75 in su</p>
+            <br>
+        {% endif %}
+
+        {% if city == "Lille" %}
+            <h2>Lille</h2>
+            <p style="font-size: 20px;">Città universitaria, con un centro storico meraviglioso e moltissimi musei. Famosa non solo per la Braderie, il più grande mercato delle pulci, ma anche per la sua storia, cultura, architettura e accoglienza.
+            </p>
+            
+            <img src="{{ url_for('static', filename='lille1.jpg') }}" alt="Roma" width="500">
+            
+            <h3>Monumenti e attrazioni principali:</h3>
+            <ul>
+                <li><b>Il campanile del municipio</b> <p> Patrimonio dell' UNESCO, è il campanile civile più alto d'Europa e permette una vista 360 gradi di tutta la città</p></li>
+                <li><b>La Grand Place e la vecchia Borsa</b> <p> Famosa per le sue 4 statue di donne, che rappresentano la dea e le 3 province della regione. La piazza, nata nel medioevo, è dedicata al commercio, e simbolo di questo è la Borsa Vecchia.
+                </p></li>
+                <li><b>Vieux Lille</b> <p>Quartiere storico pieno di edifici con architettura fiamminga</p></li>
+
+            </ul>
+
+            <img src="{{ url_for('static', filename='lille2.jpg') }}" alt="Roma" width="900">
+            <br>
+
+            <h3>Musei famosi:</h3>
+            <ul>
+                <li><b>Palazzo delle Belle Arti </b> <p>Edificio in stile Belle Époque</p></li>
+                <li><b>Musée de l’Hospice Compresse </b> <p>È un ex-ospedale medievale, fondato nel 1237 e ospitò pazienti fino al 1939. Oggi custodisce un museo di etnografia e folclore.
+
+                </p></li>
+            </ul>
+            <br>
+
+            <img src="{{ url_for('static', filename='lille3.jpg') }}" alt="Roma" width="500">
+            <img src="{{ url_for('static', filename='lille4.jpg') }}" alt="Roma" width="500">
+            
+            <h2>Costo stimato per giorno:</h2>
+            <p style="font-size: 20px;">€50/75</p>
+            <br>
+        {% endif %}
+
+        {% if city == "Bordeaux" %}
+            <h2>Bordeaux</h2>
+            <p style="font-size: 20px;">Città riconosciuta come patrimonio dell' UNESCO per la concentrazione di monumenti storici e la sua architettura omogenea, derivata dalle facciate volute da Haussmann con le sue spettacolari piazze. Molto elegante quanto in continua modernizzazione negli ultimi anni, grazie all' incremento demografico e dall' emergere di quartieri contemporanei.
+            </p>
+            
+            <img src="{{ url_for('static', filename='bordeaux1.jpg') }}" alt="Roma" width="500">
+            
+            <h3>Monumenti e attrazioni principali:</h3>
+            <ul>
+                <li><b>Place de la Bourse</b> <p>Piazza costruita nel 1720, è uno dei simboli della città</p></li>
+                <li><b>Cattedrale di Saint André</b> <p>Costruita in stile romanico nel XI secolo, subì vari conflitti e fu ricostruita in stile gotico nel XIV secolo.
+                </p></li>
+                <li><b>Basilica di San Michele</b> <p>Caratterizzata dalla sua altissima torre campanaria, questa basilica in stile gotico-fiammeggiante fu iniziata nel 1350, ma completata solo 3 secoli più tardi.</p></li>
+
+            </ul>
+
+            <img src="{{ url_for('static', filename='bordeaux2.jpg') }}" alt="Roma" width="900">
+            <br>
+
+            <h3>Musei famosi:</h3>
+            <ul>
+                <li><b>Les Bassins des Lumières</b> <p>Ricavato da una base sottomarina della seconda guerra mondiale, è il centro d’arte digitale più grande al mondo.
+                </p></li>
+                <li><b>Museo d’Aquitania</b> <p> Museo di storia provinciale con ricche collezione di archeologia ed etnografia, dalla preistoria ai nostri giorni.</p></li>
+            </ul>
+            <br>
+
+            <img src="{{ url_for('static', filename='bordeaux3.jpg') }}" alt="Roma" width="500">
+            <img src="{{ url_for('static', filename='bordeaux4.jpg') }}" alt="Roma" width="500">
+            
+            <h2>Costo stimato per 7 Giorni:</h2>
+            <p style="font-size: 20px;">€517 </p>
+            <br>
+        {% endif %}
+
+        {% if city == "Carcassonne" %}
+            <h2>Carcassonne</h2>
+            <p style="font-size: 20px;">Città del sud della Francia, è una città dall’anima medievale e il suo aspetto che sembra fermo nel tempo. Carcassonne è una delle città più turistiche della Francia e deve questo al suo straordinario patrimonio storico. Nella città sono presenti due siti UNESCO: la città medievale e il Canal du Mundi.</p>
+            
+            <img src="{{ url_for('static', filename='carcassonne1.jpg') }}" alt="Roma" width="500">
+            
+            <h3>Monumenti e attrazioni principali:</h3>
+            <ul>
+                <li><b>La città medievale</b> <p>Unica in tutta europa, sia per le sue dimensioni, sia per la sua perfetta conservazione, segnata da una storia di 2000 anni di conquiste politiche e militari</p></li>
+                <li><b>Castello del Conte</b> <p>Costruito nel XII secolo dai Visconti di Carcassonne, ha subito moltissime modifiche nel tempo.</p></li>
+                <li><b>Basilica di Saint Nazaire</b> <p>La basilica è una chiesa di origine romanica costruita nel XI secolo</p></li>
+
+            </ul>
+
+            <img src="{{ url_for('static', filename='carcassonne2.jpg') }}" alt="Roma" width="900">
+            <br>
+
+            <h3>Musei famosi:</h3>
+            <ul>
+                <li><b>Museo della scuola</b> <p>Presenta diverse ricostruzioni di vecchie aule con portapenne, antichi libri di scuola, e potrete persino scrivere con delle penne d’oca, calamaio e carta assorbente</p></li>
+                <li><b>Museo dell’inquisizione</b> <p>Ripercorre la storia di questo periodo con strumenti di tortura usati dl XII secola alla rivoluzione francese su eretici, catari e streghe.</p></li>
+
+            </ul>
+            <br>
+
+            <img src="{{ url_for('static', filename='carcassonne3.jpg') }}" alt="Roma" width="500">
+            <img src="{{ url_for('static', filename='carcassonne4.jpg') }}" alt="Roma" width="500">
+            
+            <h2>Costo stimato per 4 Giorni:</h2>
+            <p style="font-size: 20px;">€520</p>
+            <br>
+        {% endif %}
+
+        {% if city == "Tolosa" %}
+            <h2>Tolosa</h2>
+            <p style="font-size: 20px;">Chiamata anche “la città rosa” per il colore dei suoi edifici, è una delle città culturali più vivaci di Francia e culla dell’aviazione e della ricerca spaziale, possiede infatti uno dei parchi tecnologici più avanzati in termini di ricerca. Tolosa, situata tra l’Atlantico e il Mediterraneo, è la quarta città più grande della Francia. Molto presente è anche la sua anima storica, con il suo ricco patrimonio culturale e architettonico.
+            </p>
+            
+            <img src="{{ url_for('static', filename='tolosa1.jpg') }}" alt="Roma" width="500">
+            
+            <h3>Monumenti e attrazioni principali:</h3>
+            <ul>
+                <li><b>Il campidoglio</b> <p>l’enorme piazza sormontata dalla croce occitana, è circondata da edifici in mattoni rosa</p></li>
+                <li><b>Basilica di Saint-Sernin</b> <p>Patrimonio dell’umanità UNESCO, è uno degli edifici romanici francesi più grandi.</p></li>
+                <li><b>Chiesa dei Giacobini</b> <p>Eccezionale esempio di architettura gotica e con il suo convento che è un gioiello dell'arte medievale, questa chiesa contiene le reliquie di San Tommaso d’Aquino. 
+                </p></li>
+
+
+            </ul>
+
+            <img src="{{ url_for('static', filename='tolosa2.jpg') }}" alt="Roma" width="900">
+            <br>
+
+            <h3>Musei famosi:</h3>
+            <ul>
+                <li><b>Città dello Spazio</b> <p>Tolosa è il centro aerospaziale più importante di tutta Europa, e per celebrare la propria vocazione per lo spazio venne creata la città dello spazio, un parco scientifico e di divertimenti: aree interattive, esposizione di velivoli storici, e molto altro.
+                </p></li>
+                <li><b>Musée des Augustins</b> <p>Monastero agostiniano e ottimo esempio di architettura gotica meridionale, ospita oggi il Museo delle Belle Arti di Tolosa</p></li>
+            </ul>
+            <br>
+
+            <img src="{{ url_for('static', filename='tolosa3.jpg') }}" alt="Roma" width="500">
+            <img src="{{ url_for('static', filename='tolosa4.jpg') }}" alt="Roma" width="500">
+            
+            <h2>Costo stimato per 4 Giorni:</h2>
+            <p style="font-size: 20px;">€590</p>
+            <br>
+        {% endif %}
+
+        {% if city == "Strasburgo" %}
+            <h2>Strasburgo</h2>
+            <p style="font-size: 20px;">Città di confine e capoluogo dell’Alsazia, ha avuto una storia molto tribolata poiché città di confine e oggetto di contese per secoli. Fu annessa e ceduta multiple volte fra Francia  e Germania, e proprio per questa sua storia di contesa e divisione fu scelta per la sede del parlamento europeo. Città cosmopolita e multietnica, antica e maestosa grazie alla sua città vecchia, edifici storici e la sua cattedrale gotica. 
+            </p>
+            
+            <img src="{{ url_for('static', filename='strasburgo1.jpg') }}" alt="Roma" width="500">
+            
+            <h3>Monumenti e attrazioni principali:</h3>
+            <ul>
+                <li><b>Cattedrale di Strasburgo</b> <p> risalente al 1220, è un capolavoro dell’architettura gotica.</p></li>
+                <li><b>La Petite France</b> <p>Senza dubbio il quartiere più antico e famoso di Strasburgo, rimasto intatto nonostante i secoli passati.</p></li>
+                <li><b>Palazzo dei Rohan</b> <p> Immensa residenza principesca, è infatti uno dei monumenti più importanti della grande Ile. Oggi è sede di tre musei: il museo Archeologico, dall’epoca gallo-romana ai primi secoli del medioevo, il Museo delle Arti Decorative e il Museo delle Belle Arti è un affascinante panorama della storia della pittura in Europa.</p></li>
+            </ul>
+
+            <img src="{{ url_for('static', filename='strasburgo2.jpg') }}" alt="Roma" width="900">
+            <br>
+
+            <h3>Musei famosi:</h3>
+            <ul>
+                <li><b>Museo alsaziano</b> <p>offre un viaggio attraverso gli edifici antichi di Strasburgo. Presenta ricostruzioni di vari ambienti storici corredati con oggetti originali della vita in campagna in Alsazia dal XVIII al XIX secolo.</p></li>
+                <li><b>Casa Kammerzell</b> <p> Affacciata sulla piazza della Cattedrale, è un edificio antico appartenuto a un facoltoso commerciante di formaggi. Casa a graticcio, costruita in legno e dotata di 75 finestre è un capolavoro di architettura alsaziana</p></li>
+            </ul>
+            <br>
+
+            <img src="{{ url_for('static', filename='strasburgo3.jpg') }}" alt="Roma" width="500">
+            <img src="{{ url_for('static', filename='strasburgo4.jpg') }}" alt="Roma" width="500">
+            
+            <h2>Costo stimato per 4 Giorni:</h2>
+            <p style="font-size: 20px;">€325 </p>
+            <br>
+        {% endif %}
+
+        {% if city == "Nantes" %}
+            <h2>Nantes</h2>
+            <p style="font-size: 20px;">Sesta città più grande della Francia situata nella Loira Atlantica. Città dinamica e ricca, con moltissimi monumenti storici e attrazioni turistiche, promotrice di eventi culturali e rinnovatrice del proprio arredo urbano. Le sue fabbriche ed ex-magazzini industriali sono stati trasformati in luoghi di cultura e numerose opere d'arte sono disseminate per la città.
+
+            </p>
+            
+            <img src="{{ url_for('static', filename='nantes1.jpg') }}" alt="Roma" width="500">
+            
+            <h3>Monumenti e attrazioni principali:</h3>
+            <ul>
+                <li><b>Macchine dell’Isola di Nantes </b> <p>Situate negli ex-cantieri navali della città, nasce questo ambizioso progetto che unisce i mondi di Jules Verne e le invenzioni di Leonardo</p></li>
+                <li><b>Castello dei duchi di Bretagna</b> <p>Meraviglioso castello nel cuore della città che è stato palazzo ducale, fortezza militare, bunker dei tedeschi e caserma</p></li>
+                <li><b>Cattedrale di Nantes</b> <p>Facciata in pietra bianca, decorata con portoni maestosi e incorniciata da due massicce torri.</p></li>
+
+
+            </ul>
+
+            <img src="{{ url_for('static', filename='nantes2.jpg') }}" alt="Roma" width="900">
+            <br>
+
+            <h3>Musei famosi:</h3>
+            <ul>
+                <li><b>Museo di Giulio Verne</b> <p>Dedicato al personaggio di Nantes più famoso, Jules Verne, reso famoso per “il giro del mondo in ottanta giorni”.</p></li>
+                <li><b>Museo delle Arti</b> <p>Inaugurato nel 2017, ripercorre le epoche dal XIII al XXI secolo, con 12000 opere di autori come Picasso e Kandinsky.
+                </p></li>
+
+            </ul>
+            <br>
+
+            <img src="{{ url_for('static', filename='nantes3.jpg') }}" alt="Roma" width="500">
+            <img src="{{ url_for('static', filename='nantes4.jpg') }}" alt="Roma" width="500">
+            
+            <h2>Costo stimato per Giorno:</h2>
+            <p style="font-size: 20px;">€90</p>
+            <br>
+        {% endif %}
+
+        {% if city == "Ajaccio" %}
+            <h2>Ajaccio</h2>
+            <p style="font-size: 20px;">Ajaccio è la città dove nacque Napoleone Bonaparte e luogo dove la natura predomina, rendendola unica e perfetta per le gite in barca e le escursioni a piedi. Fu anche la prima città francese ad essere liberata durante la seconda guerra mondiale.
+            </p>
+            
+            <img src="{{ url_for('static', filename='ajaccio1.jpg') }}" alt="Roma" width="500">
+            
+            <h3>Monumenti e attrazioni principali:</h3>
+            <ul>
+                <li><b>Quartiere genovese</b> <p> Il quartiere più antico della città, troviamo qui vecchi edifici dalle facciate colorate e piccole stradine. Potrete ammirare il suo porto di pescatori o seguire le orme di Napoleone visitando la casa dove ebbe i natali.
+                </p></li>
+                <li><b>Casa di Napoleone Bonaparte</b> <p>La casa di Bonaparte ospita ora un museo dedicato alla famiglia imperiale. Permette di fare un viaggio nel tempo e scoprire i diversi ambienti che compongono la casa, certi arredati anche con mobili d’epoca. 
+                </p></li>
+            </ul>
+
+            <img src="{{ url_for('static', filename='ajaccio2.jpg') }}" alt="Roma" width="900">
+            <br>
+
+            <h3>Musei famosi:</h3>
+            <ul>
+                <li><b>Museo Fesch</b> <p>Il Palais Fesch, costruito dallo zio materno di Napoleone, ospita oggi il Museo delle belle arti. </p></li>
+                <li><b>Biblioteca Municipale Fesch</b> <p>Fondata dal fratello di Napoleone, la biblioteca comunale di Ajaccio è stata dichiarata monumento storico nel 2011. La sala principale ospita quasi 40000 opere, fra le quali 27 volumi dell’enciclopedia di Diderot e d’Alambert</p></li>
+                <li><b>Cappella Imperiale</b> <p>Detta anche Cappella Palatina, è una chiesa edificata nel 1859 su richiesta di Napoleone III, per il desiderio dello zio che voleva riunire le tombe della famiglia Bonaparte in uno stesso luogo.</p></li>
+            </ul>
+            <br>
+
+            <img src="{{ url_for('static', filename='ajaccio3.jpg') }}" alt="Roma" width="500">
+            <img src="{{ url_for('static', filename='ajaccio4.jpg') }}" alt="Roma" width="500">
+            
+            <h2>Costo stimato per Giorno:</h2>
+            <p style="font-size: 20px;">€80</p>
+            <br>
+        {% endif %}
+
+        {% if city == "York" %}
+            <h2>York</h2>
+            <p style="font-size: 20px;">Città dell’Inghilterra nord-orientale, è una tra le più famose e belle delle antiche città britanniche. Si trova nel mezzo di un’ampia depressione che costituì per secoli la porta naturale del passaggio fra la Scozia e l’Inghilterra. Fu fiorente porto fluviale e mercato di un fertile distretto agricolo. Oggi York è soprattutto notevole nodo stradale e ferroviario per le comunicazioni fra la Scozia e l’Inghilterra, e centro culturale. Numerose le industrie, sia collegate ai prodotti agricoli della zona, sia connesse con le sue funzioni di nodo di comunicazioni.
+                York è la città fortificata medievale che offre davvero tutto. Il suo sfondo di vicoli medievali e una via dello shopping che risale al Domesday book ci dicono che questa città compatta è piena di cose da vedere, dalle imponenti sale gotiche di 2000 anni della sua cattedrale o ai The Shambles, alle graziose strade del XIII secolo.
+                </p>
+            
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Dainserire" width="500">
+            
+            <h3>Monumenti e attrazioni principali:</h3>
+            <ul>
+                <li><b>Cattedrale di York</b> <p>
+                    Le torri di questo edificio in stile gotico, anche noto come York Minster, si ergono infatti a oltre 70 metri di altezza nel centro storico.</p></li>
+                <li><b>Clifford’s Tower</b> <p>La Clifford’s Tower è probabilmente il punto di interesse più emblematico di York. È l'unica struttura rimanente del Castello di York, una struttura medievale normanna risalente al 1068 d.C. che un tempo comprendeva fortificazioni sui ripidi lati della collina, in prossimità del punto in cui s'incontrano i fiumi Ouse e Foss.</p></li>
+
+            </ul>
+
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Dainserire" width="900">
+            <br>
+
+            <h3>Musei famosi:</h3>
+            <ul>
+                <li><b>National Railway Museum</b> <p>Appena fuori dalle mura di York e accanto alla stazione cittadina, sorge il National Railway Museum, che vanta una delle collezioni ferroviarie più ampie al mondo e largamente apprezzata dai visitatori di tutte le età.</p></li>
+                <li><b>York Museum Gardens</b> <p>Gli York Museum Gardens sono un vero e proprio tesoro locale, che custodisce in un unico luogo diverse attrazioni culturali e rigogliosi giardini botanici, abitati da vivaci scoiattoli e splendidi pavoni. Il parco ospita al proprio interno le rovine dell'Abbazia di St. Mary e del St. Leonard’s Hospital, una galleria d'arte e tanto altro.</p></li>
+                <li><b>Yorkshire Museum di York</b> <p> Lo Yorkshire Museum si trova immerso in una delle aree verdi del cuore della città di York, sulla riva del fiume Ouse. La struttura è completamente circondata da un giardino botanico che ha preso il nome di Museum Gardens e possiede, attualmente, quattro tipologie di collezioni.</p></li>
+                <li><b>The Shambles a York</b> <p>Si tratta di una pittoresca strada acciottolata situata nel cuore del centro storico di York che deve il nome al termine sassone “Fleshammels”, che significa “la strada dei macellai”, perché qui si trovava un antico mercato della carne che veniva chiamato “The Great Flesh Shambles”.</p></li>
+            </ul>
+            <br>
+
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Dainserire" width="500">
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Dainserire" width="500">
+            
+           
+        {% endif %}
+
+        {% if city == "Liverpool" %}
+            <h2>Liverpool</h2>
+            <p style="font-size: 20px;">Una delle città portuali più importanti del Regno Unito, culla dei Beatles e, insieme a Stavanger, capitale europea della cultura nel 2008, Liverpool fu fondata nel XIII secolo, anche se il suo periodo di massimo splendore non sarebbe arrivato fino a quasi 300 anni dopo, quando fu istituita come città portuale di vitale importanza nel commercio con l’America. Gran parte della prosperità economica della città era dovuta alla tratta degli schiavi che lasciarono questo porto per le colonie americane. Liverpool era anche una delle città britanniche più fiorenti al tempo della rivoluzione industriale, ma fu anche gravemente colpita nella Seconda guerra mondiale. Con il declino dell’industria nell’ultimo quarto del XX secolo, il motore economico dovette subire una dura revisione e iniziò così una nuova fase di sviluppo incentrato sul turismo e sullo spirito giovane grazie all’irruzione prorompente dei Beatles.</p>
+            
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Dainserire" width="500">
+            
+            <h3>Monumenti e attrazioni principali:</h3>
+            <ul>
+                <li><b>China town</b> <p> Liverpool ha una grande popolazione multiculturale, di cui un'alta percentuale è cinese. La Chinatown di Liverpool è stata la prima ad essere fondata in Europa. Verso la fine degli anni '60 dell'Ottocento molti migranti cinesi arrivarono per la prima volta a Liverpool a seguito dell'impiego di marinai cinesi da parte della Blue Funnel Shipping Line, creando forti legami tra le città, Shanghai, Hong Kong e Liverpool.</p></li>
+                <li><b>Le numerose cattedrali della città</b> <p>Tra i tanti luoghi che potete visitare nella città di Liverpool, non potete certo perdervi le due principali cattedrali della città: la gotica Cattedrale Anglicana di Liverpool e la più moderna Cattedrale Metropolitana di Cristo Re.</p></li>
+
+
+            </ul>
+
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="900">
+            <br>
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="500">
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="500">
+            
+        {% endif %}
+
+        {% if city == "Bath" %}
+            <h2>Bath</h2>
+            <p style="font-size: 20px;">Un rifugio di benessere già dai tempi dei romani e resa elegante dall’architettura georgiana presente in ogni angolo: Bath è una città che ha tutto. Guardando il suo status di patrimonio mondiale dell’UNESCO, scoprirai una destinazione ricca di delizie culturali e gastronomiche.
+                Rema con la tua pagaia lungo il fiume Avon o fai un tour delle location di Bridgerton rese famose dalla serie di successo di Netflix: qualsiasi attività tu scelga, non ti mancherà l’avventura. Balla come più ti piace durante il più grande festival di musica e arte del mondo, Glastonbury, o scopri la vita attraverso gli occhi di un personaggio di un libro durante il festival annuale dedicato a Jane Austen, celebreremo i 250 anni dalla nascita dell’autore nel 2025. Dallo shopping e l’esplorazione delle terme romane, fino a tuffarti nelle acque ricche di minerali della piscina sul tetto della Thermae Bath Spa, questo è un posto da non perdere.
+                </p>
+            
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="500">
+            
+            <h3>Monumenti e attrazioni principali:</h3>
+            <ul>
+                <li><b>Le Terme Romane</b> <p>Uno dei punti salienti del tour è sicuramente la visita alle Terme Romane. Questo complesso di antiche piscine, bagni e saune risale al periodo romano ed è incredibilmente ben conservato.</p></li>
+                <li><b>Prior Park</b> <p>Per una pausa tranquilla dalla frenesia della città, fai una passeggiata nei Giardini di Prior Park. Questo splendido parco offre viste mozzafiato sulla città e sulle campagne circostanti.</p></li>
+                <li><b>Royal Crescent</b> <p>Una delle icone più riconoscibili della città, questo lungo edificio a forma di semicerchio è un bellissimo esempio di architettura georgiana.</p></li>
+                <li><b>Ponte di Pulteney</b> <p>Questo ponte pedonale attraversa il fiume Avon ed è uno dei quattro ponti al mondo con negozi lungo entrambi i lati. Ispirato proprio dai ponti italiani pieni di negozi come Ponte Vecchio e Ponte di Rialto durante i viaggi a Firenze e Venezia</p></li>
+                <li><b>Bath Abbey</b> <p>Questa maestosa abbazia gotica domina il centro della città ed è un luogo di culto importante e una meraviglia architettonica. Risalente al XII secolo, questa cattedrale gotica è rinomata per le vetrate colorate e la storia che vi è legata.</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+
+            </ul>
+
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="900">
+            <br>
+
+            <h3>Musei famosi:</h3>
+            <ul>
+                <li><b>Il Roman Baths Museum</b> <p>Per una prospettiva più dettagliata sulle Terme Romane, da non perdere è anche il Roman Baths Museum. Questo museo offre una ricca esposizione di reperti archeologici, insieme a modelli e ricostruzioni che illustrano come funzionavano le terme nell’antichità.</p></li>
+                <li><b>Jane Austen Centre</b> <p>Bath è strettamente associata all’autrice Jane Austen, che visse nella città per cinque anni dal 1801 fino al 1806. Il centro dedicato a lei
+                    offre una panoramica sulla sua vita e il suo lavoro, con oggetti d’epoca e esposizioni interattive.
+                   </p></li>
+            </ul>
+            <br>
+
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="500">
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="500">
+
+        {% endif %}
+
+        {% if city == "Oxford" %}
+            <h2>Oxford</h2>
+            <p style="font-size: 20px;">A solo un’ora di treno da Londra, ti ritroverai nella città delle guglie sognanti. Oxford ne è piena zeppa. Casa per molti studenti da 800 anni, ospita l’università, i giardini botanici e i pub più antichi della Gran Bretagna. Ha più chiostri, guglie gotiche ed edifici storici di quanti tu possa pensare Aggiungi stradine acciottolate, canali e uno strano barchino lungo i suoi fiumi e otterrai una ricetta rubacuori. Sebbene sia piena di musei, biblioteche e gallerie, c’è di più in questa gemma oltre alla sua bellezza e al suo intelletto imponente.</p>
+            
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="500">
+            
+            <h3>Monumenti e attrazioni principali:</h3>
+            <ul>
+                <li><b>Christ Church </b> <p>Con la sua avvincente combinazione di architettura maestosa, patrimonio letterario e doppia identità come Hogwarts di Harry Potter, Christ Church attrae turisti in abbondanza</p></li>
+                <li><b>Castello e prigione di Oxford </b> <p>Oggi resta ben poco del castello di Oxford, costruito per Guglielmo il Conquistatore nel 1071 e in gran parte distrutto dopo la guerra civile inglese perché i realisti sconfitti lo avevano usato come prigione.</p></li>
+                <li><b>La Bodleian Library </b> <p>Si tratta della principale biblioteca di ricerca dell'Università di Oxford ed una delle più antiche biblioteche d'Europa. Con oltre 12 milioni di articoli, è la seconda biblioteca più grande della Gran Bretagna dopo la British Library.</p></li>
+
+            </ul>
+
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="900">
+            <br>
+
+            <h3>Musei famosi:</h3>
+            <ul>
+                <li><b>Museo di storia naturale dell'Università di Oxford </b> <p>Ospitato in un glorioso edificio gotico vittoriano, con colonne in ghisa, capitelli intagliati a fiori e un imponente tetto in vetro, questo museo è una superba vetrina per alcune straordinarie esposizioni. Tra gli esemplari provenienti da tutto il mondo c'è un granchio ragno giapponese di 150 anni, ma sono i dinosauri a lasciare davvero a bocca aperta la folla.</p></li>
+                <li><b>Radcliffe camera</b> <p>Sicuramente il monumento più fotografato di Oxford, la Radcliffe Camera color sabbia-oro è una splendida biblioteca circolare molto luminosa.</p></li>
+                <li><b>All Souls College</b> <p>Uno dei college più ricchi di Oxford, l'All Souls fu fondato come centro di preghiera e apprendimento nel 1438. Gran parte della sua facciata risale a quell'epoca, mentre il più piccolo Front Quad è rimasto sostanzialmente invariato per cinque secoli.</p></li>
+            </ul>
+            <br>
+
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="500">
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="500">
+            
+        {% endif %}
+
+        {% if city == "Londra" %}
+            <h2>Londra</h2>
+            <p style="font-size: 20px;">Londra, la capitale del Regno Unito, è un concentrato di storia, cultura e modernità, con una varietà incredibile di attrazioni e luoghi da visitare. Dalle icone storiche come il Big Ben e Buckingham Palace, alla vivace scena culturale nei musei e teatri, Londra ha qualcosa per tutti. Puoi passeggiare lungo il Tamigi, fare un giro sul London Eye per ammirare il panorama della città, o scoprire la storia in uno dei suoi musei mondiali. Sia che tu stia cercando cultura, shopping o svago, Londra ti accoglierà con la sua energia inconfondibile.
+            </p>
+            
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="500">
+            
+            <h3>Monumenti e attrazioni principali:</h3>
+            <ul>
+                <li><b>Palazzo di Buckingham</b> <p>Residenza ufficiale della Regina, Buckingham Palace è una delle attrazioni più famose di Londra. La cerimonia del cambio della guardia è un’esperienza da non perdere, così come la visita ai giardini del palazzo in estate.</p></li>
+                <li><b>The Shard</b> <p>Se cerchi una vista mozzafiato su Londra, il The Shard è il posto giusto. Il grattacielo più alto della città offre un panorama a 360° sulla capitale, perfetto per una vista panoramica spettacolare.</p></li>
+                <li><b>Westminster Abbey</b> <p>Un altro capolavoro gotico, Westminster Abbey è il luogo di incoronazione dei monarchi britannici e una delle chiese più storiche del Regno Unito.</p></li>
+                <li><b>Covent Garden</b> <p>Per una dose di arte e divertimento, Covent Garden è il posto ideale. Qui troverai artisti di strada, negozi unici, caffè alla moda e ristoranti eleganti.</p></li>
+
+            </ul>
+
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="900">
+            <br>
+
+            <h3>Musei famosi:</h3>
+            <ul>
+                <li><b>British Museum</b> <p>Uno dei musei più importanti e conosciuti al mondo, il British Museum ospita una vastissima collezione di reperti provenienti da tutto il mondo. Tra le sue meraviglie, la Stele di Rosetta e le sculture del Partenone sono assolutamente imperdibili.</p></li>
+                <li><b>Torre di Londra</b> <p>La Torre di Londra è famosa per la sua storia come prigione e per essere la sede dei Gioielli della Corona. Passeggiando tra le mura della torre, si possono scoprire storie intriganti di prigionia, esecuzioni e potere monarchico.</p></li>
+                <li><b>National Gallery</b> <p>Situata a Trafalgar Square, la National Gallery ospita alcune delle opere d'arte più celebri al mondo, tra cui dipinti di Leonardo da Vinci, Vincent van Gogh e Rembrandt. Un must per gli amanti dell’arte.</p></li>
+            </ul>
+            <br>
+
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="500">
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="500">
+        {% endif %}
+
+        {% if city == "Cambridge" %}
+            <h2>Cambridge</h2>
+            <p style="font-size: 20px;">Cambridge è una città storica e culturale che ospita una delle università più antiche e prestigiose del mondo. Famosa per i suoi college, le strette viuzze e la bellezza dei suoi giardini, Cambridge è una meta ideale per chi cerca un’atmosfera accademica e una città ricca di storia. Puoi fare una passeggiata lungo il fiume Cam, praticare il "punting" (giro in barca), o esplorare i numerosi musei e gallerie d'arte.</p>
+            
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="500">
+            
+            <h3>Monumenti e attrazioni principali:</h3>
+            <ul>
+                <li><b>Università di Cambridge</b> <p>La prestigiosa Università di Cambridge, con i suoi numerosi college, è uno dei luoghi più affascinanti della città. Ogni college ha la propria storia e architettura, e un tour ti permetterà di scoprire i segreti accademici di Cambridge.</p></li>
+                <li><b>King’s College Chapel</b> <p>Un’icona della città, la cappella di King’s College è un capolavoro dell'architettura gotica.</p></li>
+                <li><b>Botanic Garden</b> <p>Il Giardino Botanico di Cambridge è un'oasi di tranquillità, con oltre 8.000 specie di piante da tutto il mondo. Perfetto per una passeggiata rilassante o un picnic.</p></li>
+                <li><b>Punting sul fiume Cam</b> <p>Un’attività tradizionale di Cambridge, il punting consiste nel navigare sul fiume Cam su una piccola barca a remi, che ti permetterà di ammirare i colleghi e il paesaggio circostante.</p></li>
+            </ul>
+
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="900">
+            <br>
+
+            <h3>Musei famosi:</h3>
+            <ul>
+                <li><b>Fitzwilliam Museum</b> <p>Uno dei musei più importanti della città, il Fitzwilliam Museum offre una vasta collezione di arte, libri rari e antichità. Da opere di Van Gogh a reperti egizi, c’è qualcosa per tutti.</p></li>
+                <li><b>The Round Church</b> <p>Una delle chiese più antiche di Cambridge, la Round Church è famosa per la sua architettura medievale. È un luogo ideale per scoprire la storia religiosa della città. </p></li>
+            </ul>
+            <br>
+
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="500">
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="500">
+            
+
+        {% endif %}
+
+        {% if city == "Manchester" %}
+            <h2>Manchester</h2>
+            <p style="font-size: 20px;">Manchester è una città energica e dinamica, famosa per la sua scena musicale, il calcio e la cultura industriale. Ma la città offre anche una vasta gamma di musei, gallerie e parchi verdi, rendendola una meta perfetta per tutti i tipi di viaggiatori. Con una vita notturna vibrante e una scena gastronomica in crescita, Manchester è una delle città più eccitanti del Regno Unito.
+            </p>
+            
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="500">
+            
+            <h3>Monumenti e attrazioni principali:</h3>
+            <ul>
+                <li><b>John Rylands Library</b> <p>Un esempio di architettura gotica vittoriana, questa biblioteca è un tesoro di libri rari e manoscritti. È una delle biblioteche più belle del Regno Unito.</p></li>
+                <li><b>Old Trafford</b> <p>Il leggendario stadio di calcio, casa del Manchester United, è una tappa obbligata per ogni appassionato di sport.</p></li>
+                <li><b>The Northern Quarter</b> <p>Un quartiere alla moda con negozi indipendenti, caffè unici e gallerie d'arte. È il cuore creativo della città e un posto ideale per esplorare le tendenze locali.</p></li>
+
+            </ul>
+
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="900">
+            <br>
+
+            <h3>Musei famosi:</h3>
+            <ul>
+                <li><b>Museum of Science and Industry</b> <p>Un museo che celebra il passato industriale di Manchester, con mostre interattive che vanno dalla tecnologia all’energia, fino alla storia del trasporto.</p></li>
+                <li><b>Manchester Art Gallery</b> <p>Questa galleria ospita una vasta collezione di opere d'arte, con dipinti, sculture e arti decorative che vanno dal periodo vittoriano fino ai giorni nostri.</p></li>
+            </ul>
+            <br>
+
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="500">
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="500">
+        {% endif %}
+
+        {% if city == "Brighton" %}
+            <h2>Brighton</h2>
+            <p style="font-size: 20px;">Brighton è una vivace città costiera che unisce il fascino della tradizione a una scena alternativa ed eclettica. Con il suo famoso molo, le spiagge e i ristoranti alla moda, Brighton è perfetta per una giornata di relax al mare, ma anche per una visita alla sua storica architettura e ai suoi musei. È una città che mescola il vecchio e il nuovo con grande stile.</p>
+            
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="500">
+            
+            <h3>Monumenti e attrazioni principali:</h3>
+            <ul>
+                <li><b>Royal Pavilion</b> <p>Questo palazzo esotico, con la sua architettura indiana e asiatica, è uno dei luoghi più riconoscibili di Brighton. Originariamente costruito per il re Giorgio IV, oggi è un museo affascinante.</p></li>
+                <li><b>The Lanes</b> <p>Questo quartiere storico di Brighton è noto per le sue strette viuzze piene di negozi vintage, caffè accoglienti e gallerie d’arte. Perfetto per una passeggiata tranquilla. </p></li>
+                <li><b>Brighton Pier</b> <p>Il famoso molo di Brighton è una delle attrazioni più iconiche della città, con giostre, giochi, ristoranti e un’atmosfera vivace.</p></li>
+
+
+            </ul>
+
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="900">
+            <br>
+
+            <h3>Musei famosi:</h3>
+            <ul>
+                <li><b>Brighton Museum & Art Gallery</b> <p>Un museo che combina arte, storia sociale e archeologia. La collezione di arte britannica e internazionale è impressionante</p></li>
+
+            </ul>
+            <br>
+
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="500">
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="500">
+
+        {% endif %}
+
+        {% if city == "NAME" %}
+            <h2>NAME</h2>
+            <p style="font-size: 20px;">DESCRIPTION</p>
+            
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="500">
+            
+            <h3>Monumenti e attrazioni principali:</h3>
+            <ul>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+
+            </ul>
+
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="900">
+            <br>
+
+            <h3>Musei famosi:</h3>
+            <ul>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+            </ul>
+            <br>
+
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="500">
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="500">
+            
+            <h2>Costo stimato per 7 Giorni:</h2>
+            <p style="font-size: 20px;">€COST</p>
+            <br>
+        {% endif %}
+
+        {% if city == "NAME" %}
+            <h2>NAME</h2>
+            <p style="font-size: 20px;">DESCRIPTION</p>
+            
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="500">
+            
+            <h3>Monumenti e attrazioni principali:</h3>
+            <ul>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+
+            </ul>
+
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="900">
+            <br>
+
+            <h3>Musei famosi:</h3>
+            <ul>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+            </ul>
+            <br>
+
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="500">
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="500">
+            
+            <h2>Costo stimato per 7 Giorni:</h2>
+            <p style="font-size: 20px;">€COST</p>
+            <br>
+        {% endif %}
+
+        {% if city == "NAME" %}
+            <h2>NAME</h2>
+            <p style="font-size: 20px;">DESCRIPTION</p>
+            
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="500">
+            
+            <h3>Monumenti e attrazioni principali:</h3>
+            <ul>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+
+            </ul>
+
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="900">
+            <br>
+
+            <h3>Musei famosi:</h3>
+            <ul>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+            </ul>
+            <br>
+
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="500">
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="500">
+            
+            <h2>Costo stimato per 7 Giorni:</h2>
+            <p style="font-size: 20px;">€COST</p>
+            <br>
+        {% endif %}
+
+        {% if city == "NAME" %}
+            <h2>NAME</h2>
+            <p style="font-size: 20px;">DESCRIPTION</p>
+            
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="500">
+            
+            <h3>Monumenti e attrazioni principali:</h3>
+            <ul>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+
+            </ul>
+
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="900">
+            <br>
+
+            <h3>Musei famosi:</h3>
+            <ul>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+            </ul>
+            <br>
+
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="500">
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="500">
+            
+            <h2>Costo stimato per 7 Giorni:</h2>
+            <p style="font-size: 20px;">€COST</p>
+            <br>
+        {% endif %}
+
+        {% if city == "NAME" %}
+            <h2>NAME</h2>
+            <p style="font-size: 20px;">DESCRIPTION</p>
+            
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="500">
+            
+            <h3>Monumenti e attrazioni principali:</h3>
+            <ul>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+
+            </ul>
+
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="900">
+            <br>
+
+            <h3>Musei famosi:</h3>
+            <ul>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+            </ul>
+            <br>
+
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="500">
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="500">
+            
+            <h2>Costo stimato per 7 Giorni:</h2>
+            <p style="font-size: 20px;">€COST</p>
+            <br>
+        {% endif %}
+
+        {% if city == "NAME" %}
+            <h2>NAME</h2>
+            <p style="font-size: 20px;">DESCRIPTION</p>
+            
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="500">
+            
+            <h3>Monumenti e attrazioni principali:</h3>
+            <ul>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+
+            </ul>
+
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="900">
+            <br>
+
+            <h3>Musei famosi:</h3>
+            <ul>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+            </ul>
+            <br>
+
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="500">
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="500">
+            
+            <h2>Costo stimato per 7 Giorni:</h2>
+            <p style="font-size: 20px;">€COST</p>
+            <br>
+        {% endif %}
+
+        {% if city == "NAME" %}
+            <h2>NAME</h2>
+            <p style="font-size: 20px;">DESCRIPTION</p>
+            
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="500">
+            
+            <h3>Monumenti e attrazioni principali:</h3>
+            <ul>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+
+            </ul>
+
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="900">
+            <br>
+
+            <h3>Musei famosi:</h3>
+            <ul>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+            </ul>
+            <br>
+
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="500">
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="500">
+            
+            <h2>Costo stimato per 7 Giorni:</h2>
+            <p style="font-size: 20px;">€COST</p>
+            <br>
+        {% endif %}
+
+        {% if city == "NAME" %}
+            <h2>NAME</h2>
+            <p style="font-size: 20px;">DESCRIPTION</p>
+            
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="500">
+            
+            <h3>Monumenti e attrazioni principali:</h3>
+            <ul>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+
+            </ul>
+
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="900">
+            <br>
+
+            <h3>Musei famosi:</h3>
+            <ul>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+            </ul>
+            <br>
+
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="500">
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="500">
+            
+            <h2>Costo stimato per 7 Giorni:</h2>
+            <p style="font-size: 20px;">€COST</p>
+            <br>
+        {% endif %}
+
+        
+        {% if city == "NAME" %}
+            <h2>NAME</h2>
+            <p style="font-size: 20px;">DESCRIPTION</p>
+            
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="500">
+            
+            <h3>Monumenti e attrazioni principali:</h3>
+            <ul>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+
+            </ul>
+
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="900">
+            <br>
+
+            <h3>Musei famosi:</h3>
+            <ul>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+                <li><b>NAME</b> <p>LDESC</p></li>
+            </ul>
+            <br>
+
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="500">
+            <img src="{{ url_for('static', filename='IMGNAME.jpg') }}" alt="Roma" width="500">
+            
+            <h2>Costo stimato per 7 Giorni:</h2>
+            <p style="font-size: 20px;">€COST</p>
+            <br>
+        {% endif %}
+        
+        <button onclick="window.location.href='/'">Indietro</button>
+    </div>
+</body>
+</html>

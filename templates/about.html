@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>About Us</title>
+    <style>
+        /* Impostazioni generali */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(45deg, #2f2e8a, #4f2fa7, #2d5e96, #ae31b3, #c447c9);
+            background-size: cover;
+            background-attachment: fixed; /* Evita la ripetizione del background */
+            font-family: 'Roboto', sans-serif; /* Cambio del font per un aspetto più moderno */
+        }
+
+        /* Box contenente il contenuto */
+        .content {
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Titolo */
+        h1 {
+            font-size: 36px;
+            color: #000000;
+            font-weight: 600;
+        }
+
+        /* Testo */
+        p {
+            font-size: 20px;
+            line-height: 1.6;
+            color: #000000;
+            margin-bottom: 30px;
+        }
+
+        /* Immagine */
+        img {
+            border-radius: 10px;
+            max-width: 80%; /* Immagine più piccola */
+            height: auto;
+            margin-bottom: 30px;
+        }
+
+        /* Stile dei pulsanti */
+        button {
+            width: 250px;
+            height: 60px;
+            font-size: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 30px;
+        }
+
+        /* Hover sui pulsanti */
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Stile per i pulsanti social */
+        .social-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 30px;
+            margin: 10px;
+            transition: opacity 0.3s;
+        }
+
+        .youtube-button {
+            background-color: #FF0000;
+            color: white;
+        }
+
+        .youtube-button::before {
+            content: "▶";
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        .youtube-button:hover {
+            background-color: #CC0000;
+        }
+
+        .instagram-button {
+            background: linear-gradient(45deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
+            color: white;
+        }
+
+        .instagram-button::before {
+            content: "📷";
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        .instagram-button:hover {
+            opacity: 0.8;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="content">
+<br><br/>
+<br><br/>
+<br><br/>
+<br><br/>
+<br><br/>
+<br><br/>
+<br><br/>
+<br><br/>
+
+        <h1>Chi Siamo Noi di Deplano?</h1>
+        <p>
+            Siamo un gruppo di studenti del Liceo Scientifico N. Copernico di Pavia, appassionati di viaggi e nuove esperienze.
+            <br><br>
+            Deplano è nato come progetto per facilitare le scuole nell'organizzare gite scolastiche, sia locali che internazionali. Il nostro obiettivo è rendere ogni viaggio un'opportunità unica di crescita e scoperta per gli studenti.
+            <br><br>
+            Offriamo supporto alle scuole per trovare organizzazioni pronte ad accogliere le classi, creando esperienze didattiche e divertenti.
+            <br><br>
+            Puoi contattarci tramite la pagina "Contattaci" nella Home o attraverso i nostri canali social qui sotto.
+        </p>
+
+        <img src="{{ url_for('static', filename='logo.jpg') }}" alt="Logo di Deplano">
+        
+        <div>
+            <a href="https://www.youtube.com/@DePlano-k3y" target="_blank" class="social-button youtube-button">
+                Deplano su YouTube
+            </a>
+            <a href="https://www.instagram.com" target="_blank" class="social-button instagram-button">
+                Deplano su Instagram
+            </a>
+        </div>
+
+        <button onclick="window.history.back()">Indietro</button>
+    </div>
+</body>
+</html>

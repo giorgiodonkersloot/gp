@@ -1,0 +1,297 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Deplano - Home</title>
+    <!-- Includiamo Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+            background-repeat: no-repeat;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(45deg, #080742, #2d0f7e, #8735f3, #ae31b3, #c447c9);
+            background-size: cover;
+            background-attachment: fixed;
+            text-align: center;
+        }
+        .container {
+            text-align: center;
+            width: 80%;
+            max-width: 1000px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .account-buttons {
+            margin-bottom: 20px;
+        }
+        .account-buttons button {
+            width: 180px;
+            height: 50px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            margin: 10px;
+        }
+        .account-buttons button:hover {
+            background-color: #0056b3;
+        }
+        button {
+            width: 200px;
+            height: 70px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            margin: 10px;
+            vertical-align: middle;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        /* Slideshow: container con altezza fissa */
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: 20px auto;
+            height: 450px; /* Altezza fissa */
+            overflow: hidden;
+        }
+        .mySlides {
+            display: none;
+            height: 100%;
+        }
+        .mySlides img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* L'immagine si adatta al container, eventuale ritaglio */
+            border-radius: 10px;
+        }
+        .fade {
+            -webkit-animation-name: fade;
+            -webkit-animation-duration: 1.5s;
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+        @-webkit-keyframes fade {
+            from {opacity: .4} 
+            to {opacity: 1}
+        }
+        @keyframes fade {
+            from {opacity: .4} 
+            to {opacity: 1}
+        }
+        /* Mappa */
+        #map { 
+            height: 500px;
+            width: 100%;
+        }
+        h1 {
+            color: #000;
+            font-size: 36px;
+        }
+        p {
+            font-size: 25px;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>
+            Benvenuto su Deplano<br>
+            <small style="font-size: 25px;">Hey! teacher! don't do it alone!</small>
+        </h1>
+        <img src="{{ url_for('static', filename='logo.jpg') }}" alt="Logo Deplano" width="500">
+        <br><br>
+        <div style="background-color: yellow; color: black; border: 2px solid orange; padding: 15px; margin: 20px 0; font-size: 20px; font-weight: bold; text-align: center;">
+            Attenzione: Prossimamente sul sito sarà disponibile la possibilità di creare un account! Al momento i pulsanti "Accedi" e "Registrati" non funzionano.
+        </div>
+        <div style="background-color: yellow; color: black; border: 2px solid orange; padding: 15px; margin: 20px 0; font-size: 20px; font-weight: bold; text-align: center;">
+            Attenzione: Il sito è ancora in fase di sviluppo quindi non raggiunge le sue potenzialità ed è limitato al semplice funzionamento.
+        </div>
+        <button onclick="window.location.href='/survey'">Trova la destinazione in Europa</button>
+        <button onclick="window.location.href='/localsurvey'">Trova la destinazione Locale</button>
+        <br><br/>
+
+        <div class="account-buttons">
+            {% if current_user.is_authenticated %}
+                <button onclick="window.location.href='/dashboard'">Gestisci account</button>
+            {% else %}
+                <button onclick="window.location.href='/login/google'">Accedi</button>
+            {% endif %}
+            {% if current_user.is_authenticated %}
+                <button onclick="window.location.href='/preferiti'">Preferiti</button>
+            {% else %}
+                <button onclick="window.location.href='/register'">Registrati</button>
+            {% endif %}
+            <button onclick="window.location.href='/about'">About Us</button>
+            <button onclick="window.location.href='/contact'">Contattaci</button>
+        </div>
+        <!-- Slideshow (rimane prima della mappa) -->
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+                <img src="{{ url_for('static', filename='milano1.jpg') }}" alt="Milano 1">
+            </div>
+            <div class="mySlides fade">
+                <img src="{{ url_for('static', filename='nantes1.jpg') }}" alt="Nantes 1">
+            </div>
+            <div class="mySlides fade">
+                <img src="{{ url_for('static', filename='nantes2.jpg') }}" alt="Nantes 2">
+            </div>
+            <div class="mySlides fade">
+                <img src="{{ url_for('static', filename='strasburgo1.jpg') }}" alt="Strasburgo 1">
+            </div>
+            <div class="mySlides fade">
+                <img src="{{ url_for('static', filename='tolosa2.jpg') }}" alt="Tolosa 2">
+            </div>
+            <div class="mySlides fade">
+                <img src="{{ url_for('static', filename='utrecht2.jpg') }}" alt="Utrecht 2">
+            </div>
+            <div class="mySlides fade">
+                <img src="{{ url_for('static', filename='ajaccio1.jpg') }}" alt="Ajaccio 1">
+            </div>
+            <div class="mySlides fade">
+                <img src="{{ url_for('static', filename='ajaccio2.jpg') }}" alt="Ajaccio 2">
+            </div>
+            <div class="mySlides fade">
+                <img src="{{ url_for('static', filename='bordeaux1.jpg') }}" alt="Bordeaux 1">
+            </div>
+            <div class="mySlides fade">
+                <img src="{{ url_for('static', filename='bordeaux2.jpg') }}" alt="Bordeaux 2">
+            </div>
+            <div class="mySlides fade">
+                <img src="{{ url_for('static', filename='carcassonne2.jpg') }}" alt="Carcassonne 2">
+            </div>
+            <div class="mySlides fade">
+                <img src="{{ url_for('static', filename='lille1.jpg') }}" alt="Lille 1">
+            </div>
+            <div class="mySlides fade">
+                <img src="{{ url_for('static', filename='lione1.jpg') }}" alt="Lione 1">
+            </div>
+        </div>
+        <script>
+             var slideIndex = 0;
+             showSlides();
+             function showSlides() {
+                 var i;
+                 var slides = document.getElementsByClassName("mySlides");
+                 for (i = 0; i < slides.length; i++) {
+                     slides[i].style.display = "none";  
+                 }
+                 slideIndex++;
+                 if (slideIndex > slides.length) {slideIndex = 1}    
+                 slides[slideIndex-1].style.display = "block";  
+                 setTimeout(showSlides, 3000); // Cambia immagine ogni 3 secondi
+             }
+        </script>
+
+        <!-- Mappa Interattiva -->
+        <h2>Mappa Interattiva</h2>
+        <div id="map"></div>
+        <script>
+            var map = L.map('map').setView([45.184725, 9.158207], 4);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+            // Marker di esempio per Milano
+            var marker = L.marker([45.184725, 9.158207]).addTo(map)
+                .bindPopup("<b>Pavia, sede centrale Deplano</b><br><a href='/destination/Pavia'>Vai alla destinazione Pavia</a>")
+                .openPopup();
+            var markerRoma = L.marker([41.9028, 12.4964]).addTo(map)
+                .bindPopup("<b>Roma</b><br><a href='/destination/Roma'>Vai alla destinazione Roma</a>");
+            var markerCERN = L.marker([46.233832398, 6.053166454]).addTo(map)
+                .bindPopup("<b>CERN</b><br><a href='/destination/CERN'>Vai alla destinazione CERN</a>");        
+            var markerNapoli = L.marker([40.79444, 14.46354]).addTo(map)
+                .bindPopup("<b>Napoli</b><br><a href='/destination/Napoli'>Vai alla destinazione Napoli</a>");  
+            var markerParigi = L.marker([48.856614, 2.35222]).addTo(map)
+                .bindPopup("<b>Parigi</b><br><a href='/destination/Parigi'>Vai alla destinazione Parigi</a>");
+            var markerNizza = L.marker([43.710173, 7.261953]).addTo(map)
+                .bindPopup("<b>Nizza</b><br><a href='/destination/Nizza'>Vai alla destinazione Nizza</a>");
+            var markerMontpellier = L.marker([43.610769, 3.876716]).addTo(map)
+                .bindPopup("<b>Montpellier</b><br><a href='/destination/Montpellier'>Vai alla destinazione Montpellier</a>");
+            var markerMarsiglia = L.marker([43.296482, 5.369780]).addTo(map)
+                .bindPopup("<b>Marsiglia</b><br><a href='/destination/Marsiglia'>Vai alla destinazione Marsiglia</a>");
+            var markerLione = L.marker([45.764043, 4.835659]).addTo(map)
+                .bindPopup("<b>Lione</b><br><a href='/destination/Lione'>Vai alla destinazione Lione</a>");
+            var markerLille = L.marker([50.629250, 3.057256]).addTo(map)
+                .bindPopup("<b>Lille</b><br><a href='/destination/Lille'>Vai alla destinazione Lille</a>");
+            var markerBordeaux = L.marker([44.837789, -0.579180]).addTo(map)
+                .bindPopup("<b>Bordeaux</b><br><a href='/destination/Bordeaux'>Vai alla destinazione Bordeaux</a>");
+            var markerCarcassonne = L.marker([43.212161, 2.353663]).addTo(map)
+                .bindPopup("<b>Carcassonne</b><br><a href='/destination/Carcassonne'>Vai alla destinazione Carcassonne</a>");
+            var markerTolosa = L.marker([43.604652, 1.444209]).addTo(map)
+                .bindPopup("<b>Tolosa</b><br><a href='/destination/Tolosa'>Vai alla destinazione Tolosa</a>");
+            var markerStrasburgo = L.marker([48.573405, 7.752111]).addTo(map)
+                .bindPopup("<b>Strasburgo</b><br><a href='/destination/Strasburgo'>Vai alla destinazione Strasburgo</a>");
+            var markerUtrecht = L.marker([52.089126, 5.120968]).addTo(map)
+                .bindPopup("<b>Utrecht</b><br><a href='/destination/Utrecht'>Vai alla destinazione Utrecht</a>");
+            var markerAmsterdam = L.marker([52.370216, 4.895168]).addTo(map)
+                .bindPopup("<b>Amsterdam</b><br><a href='/destination/Amsterdam'>Vai alla destinazione Amsterdam</a>");
+            var markerAjaccio = L.marker([41.919229, 8.738635]).addTo(map)
+                .bindPopup("<b>Ajaccio</b><br><a href='/destination/Ajaccio'>Vai alla destinazione Ajaccio</a>");
+            var markerBerlino = L.marker([52.521467, 13.406539]).addTo(map)
+                .bindPopup("<b>Berlino</b><br><a href='/destination/Berlino'>Vai alla destinazione Berlino</a>");
+            var markerAmburgo = L.marker([53.551085, 9.993682]).addTo(map)
+                .bindPopup("<b>Amburgo</b><br><a href='/destination/Amburgo'>Vai alla destinazione Amburgo</a>");
+            var markerMonaco = L.marker([48.135125, 11.581981]).addTo(map)
+                .bindPopup("<b>Monaco</b><br><a href='/destination/Monaco'>Vai alla destinazione Monaco</a>");
+            var markerStoccarda = L.marker([48.775846, 9.182932]).addTo(map)
+                .bindPopup("<b>Stoccarda</b><br><a href='/destination/Stoccarda'>Vai alla destinazione Stoccarda</a>");
+            var markerFrancoforte = L.marker([50.110922, 8.682127]).addTo(map)
+                .bindPopup("<b>Francoforte</b><br><a href='/destination/Francoforte'>Vai alla destinazione Francoforte</a>");
+            var markerColonia = L.marker([50.937531, 6.960279]).addTo(map)
+                .bindPopup("<b>Colonia</b><br><a href='/destination/Colonia'>Vai alla destinazione Colonia</a>");
+            var markerNorimberga = L.marker([49.4469707, 11.07147674]).addTo(map)
+                .bindPopup("<b>Norimberga</b><br><a href='/destination/Norimberga'>Vai alla destinazione Norimberga</a>");
+            var markerDresda = L.marker([51.05318632, 13.73992501]).addTo(map)
+                .bindPopup("<b>Dresda</b><br><a href='/destination/Dresda'>Vai alla destinazione Dresda</a>");
+            var markerAmsterdam2 = L.marker([52.370216, 4.895168]).addTo(map)
+                .bindPopup("<b>Amsterdam</b><br><a href='/destination/Amsterdam'>Vai alla destinazione Amsterdam</a>");
+            var markerUtrecht2 = L.marker([52.089126, 5.120968]).addTo(map)
+                .bindPopup("<b>Utrecht</b><br><a href='/destination/Utrecht'>Vai alla destinazione Utrecht</a>");
+            var markerRotterdamAia = L.marker([51.980567, 4.397668]).addTo(map)
+                .bindPopup("<b>Rotterdam e Aia</b><br><a href='/destination/Rotterdam e Aia'>Vai alla destinazione Rotterdam e Aia</a>");
+            var markerGroningen = L.marker([53.219383, 6.566502]).addTo(map)
+                .bindPopup("<b>Groningen</b><br><a href='/destination/Groningen'>Vai alla destinazione Groningen</a>");
+            var markerYork = L.marker([53.9656578, -1.0743052]).addTo(map)
+                .bindPopup("<b>York</b><br><a href='/destination/York'>Vai alla destinazione York</a>");
+            var markerNewcastle = L.marker([54.9738474, -1.6131572]).addTo(map)
+                .bindPopup("<b>Newcastle</b><br><a href='/destination/Newcastle'>Vai alla destinazione Newcastle</a>");
+            var markerBath = L.marker([51.3813864, -2.3596963]).addTo(map)
+                .bindPopup("<b>Bath</b><br><a href='/destination/Bath'>Vai alla destinazione Bath</a>");
+            var markerOxford = L.marker([51.75201315, -1.257726]).addTo(map)
+                .bindPopup("<b>Oxford</b><br><a href='/destination/Oxford'>Vai alla destinazione Oxford</a>");
+            var markerWindermere = L.marker([54.3794828, -2.9061994]).addTo(map)
+                .bindPopup("<b>Windermere</b><br><a href='/destination/Windermere'>Vai alla destinazione Windermere</a>");
+            var markerCotswolds = L.marker([51.833031, -1.843309]).addTo(map)
+                .bindPopup("<b>Cotswolds</b><br><a href='/destination/Cotswolds'>Vai alla destinazione Cotswolds</a>");
+            var markerLondra = L.marker([51.5074456, -0.1277653]).addTo(map)
+                .bindPopup("<b>Londra</b><br><a href='/destination/Londra'>Vai alla destinazione Londra</a>");
+            var markerLiverpool = L.marker([53.4071991, -2.99168]).addTo(map)
+                .bindPopup("<b>Liverpool</b><br><a href='/destination/Liverpool'>Vai alla destinazione Liverpool</a>");
+            
+            var markerxxxxxxxx = L.marker([0, 0]).addTo(map)
+                .bindPopup("<b>xxxxxxxx</b><br><a href='/destination/xxxxxxxx'>Vai alla destinazione xxxxxxxx</a>");
+        </script>
+    </div>
+</body>
+</html>
+

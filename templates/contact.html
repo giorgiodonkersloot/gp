@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background: linear-gradient(45deg, #080742, #2d0f7e, #8735f3, #ae31b3, #c447c9);
+        background-size: cover;
+        background-attachment: fixed;
+    }
+
+    .content {
+        text-align: center;
+        width: 100%;
+        background-color: white;
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .button-group {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    input, textarea {
+        width: 80%;
+        max-width: 400px;
+        padding: 10px;
+        margin: 5px 0;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    input:focus, textarea:focus {
+        border-color: #4CAF50;
+        outline: none;
+    }
+
+    button {
+        width: 200px;
+        height: 50px;
+        font-size: 16px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    button {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+
+    </style>
+    <meta charset="UTF-8">
+    <title>Contattaci</title>
+</head>
+<body>
+    <div class="content">
+        <h1>Contattaci</h1>
+        <form action="/contact" method="POST">
+            <div class="form-group">
+                <label for="title">Titolo:</label><br>
+                <input type="text" name="title" id="title" required><br><br>
+            </div>
+
+            <div class="form-group">
+                <label for="email">La tua Email:</label><br>
+                <input type="email" name="email" id="email" required><br><br>
+            </div>
+           
+            <div class="form-group">
+                <label for="message">Messaggio:</label><br>
+                <textarea name="message" id="message" required></textarea><br><br>
+            </div>
+
+            <div class="button-group">
+                <button type="submit">Invia</button>
+                <button type="button" onclick="window.history.back()">Indietro</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

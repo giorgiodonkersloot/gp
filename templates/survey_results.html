@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <style>
+        body {
+        display: flex;
+        justify-content: center;  /* Centra orizzontalmente */
+        align-items: center;  /* Centra verticalmente */
+        height: 100vh;  /* La pagina occupa tutta la finestra */
+        margin: 0;  /* Rimuove i margini predefiniti */
+        background-color: #f0f0f0;  /* Colore di sfondo, opzionale */
+    }
+
+    /* Contenitore centrale */
+    .container {
+        text-align: center; /* Centra il testo e gli altri elementi */
+        width: 80%;  /* Imposta una larghezza per non occupare tutta la pagina */
+        max-width: 1000px;  /* Imposta una larghezza massima */
+    }
+
+    /* Puoi aggiungere uno spazio per la mappa, se necessario */
+    #map {
+        width: 100%;
+        height: 400px; /* Puoi regolare l'altezza della mappa */
+    }
+
+    /* Aggiungi margini ai bottoni, se necessario */
+    button {
+        margin: 10px;
+        padding: 10px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    </style>
+    <meta charset="UTF-8">
+    <title>Risultato</title>
+</head>
+<body>
+    <div class="content">
+    <h1>Destinazione suggerita: {{ destination }}</h1>
+    <a href="{{ url_for('home') }}"><button>Go Back</button></a>
+    </div>
+</body>
+</html>
