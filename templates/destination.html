@@ -68,13 +68,6 @@
     <div class="container">
         <h1>Abbiamo scelto per te: {{ city }}</h1>
         <p>Qui troverai tutte le informazioni più importanti.</p>
-        <button id="favorite-btn" onclick="toggleFavorite('{{ city }}')">
-            {% if is_fav %}
-              ★ Preferito
-            {% else %}
-              ☆ Aggiungi ai Preferiti
-            {% endif %}
-          </button>
         {% if city == "Milano" %}
             <h2>Milano</h2>
             <p>Milano è la capitale della moda, con tanti luoghi storici e moderni da scoprire.</p>
@@ -1210,8 +1203,7 @@
 
         <div class="navigation-buttons">
             <!-- Bottone per tornare alla home -->
-            <a href="{{ url_for('home') }}">
-                <button>Torna alla Home</button>
+            <button type="button" onclick="window.history.back()">Torna alla home</button>
             </a>
             <!-- Bottone per aggiungere/rimuovere dai preferiti -->
             <button id="favorite-btn" onclick="toggleFavorite('{{ city }}')">

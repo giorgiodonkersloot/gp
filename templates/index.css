@@ -41,20 +41,6 @@ body {
 .account-buttons button:hover {
     background-color: #0056b3;
 }
-.account-buttons #preferiti {
-    margin-bottom: 20px;
-}
-.account-buttons #preferiti {
-    width: 180px;
-    height: 50px;
-    font-size: 16px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 10px;
-    margin: 10px;
-}
 .account-buttons #preferiti:hover {
     background-color: #e6d219;
 }
