@@ -171,7 +171,7 @@ questions = [
         "options": {
             "Indifferente": {},
             "Caldo": {"CERN": 5, "Milano": 2},
-            "Freddo": {"Napoli": 5, "Milano": 3}
+            "Freddo": {"Napoli": 5, "Milano": 3},
             "Moderato": {"Napoli": 5, "Milano": 3}
         }
     },
@@ -199,10 +199,10 @@ questions = [
         "options": {
             "Storia e Storia dell'arte": {"Firenze": 4, "Roma": 3},
             "Scienze": {"Napoli": 4, "Milano": 2},
-            "Cultura generale/Esperienza": {"Milano": 5, "Roma": 2}
-            "Lingua inglese": {"Milano": 5, "Roma": 2}
-            "Lingua francese": {"Milano": 5, "Roma": 2}
-            "Lingua spagnola": {"Milano": 5, "Roma": 2}
+            "Cultura generale/Esperienza": {"Milano": 5, "Roma": 2},
+            "Lingua inglese": {"Milano": 5, "Roma": 2},
+            "Lingua francese": {"Milano": 5, "Roma": 2},
+            "Lingua spagnola": {"Milano": 5, "Roma": 2},
             "Lingua tedesca": {"Milano": 5, "Roma": 2}
 
 
@@ -214,7 +214,7 @@ questions = [
         "options": {
             "Voglio l'italiano": {"Napoli": 5, "Roma": 3},
             "L'inglese va bene": {"Roma": 5, "Firenze": 3},
-            "Classiche lingue di indirizzo": {"Milano": 5, "CERN": 1}
+            "Classiche lingue di indirizzo": {"Milano": 5, "CERN": 1},
             "Qualsiasi lingua": {"Milano": 5, "CERN": 1}
         }
     },
@@ -260,11 +260,11 @@ questions = [
         "options": {
             "Inghilterra": {"Napoli": 5, "Roma": 3},
             "Italia": {"Roma": 5, "Firenze": 3},
-            "Spagna": {"Milano": 5, "CERN": 1}
-            "Portogallo": {"Milano": 5, "CERN": 1}
-            "Francia": {"Milano": 5, "CERN": 1}
-            "Germania": {"Milano": 5, "CERN": 1}
-            "Paesi Bassi": {"Milano": 5, "CERN": 1}
+            "Spagna": {"Milano": 5, "CERN": 1},
+            "Portogallo": {"Milano": 5, "CERN": 1},
+            "Francia": {"Milano": 5, "CERN": 1},
+            "Germania": {"Milano": 5, "CERN": 1},
+            "Paesi Bassi": {"Milano": 5, "CERN": 1},
             "Est europa": {"Milano": 5, "CERN": 1}
 
             
