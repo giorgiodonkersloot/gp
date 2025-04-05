@@ -282,39 +282,39 @@ def home():
 @app.route('/survey', methods=['GET', 'POST'])
 def survey():
     q_index = request.args.get('q', 0, type=int)
-    if 'survey_answers' not in session:
-        session['survey_answers'] = [None] * len(questions)
-        
+
+    answers = session.get('survey_answers')
+    if not answers or len(answers) != len(questions):
+        answers = [None] * len(questions)
+    session['survey_answers'] = answers
+
     if request.method == 'POST':
         current_index = int(request.form.get('question_index'))
         answer = request.form.get('answer').strip()
-        answers = session.get('survey_answers', [None] * len(questions))
-        
-        if 0 <= current_index < len(answers):
-            answers[current_index] = answer
-            session['survey_answers'] = answers
-        else:
-            print("Indice domanda fuori range, si continua comunque.")
-            return "Errore: indice domanda non valido", 400
+
+        answers[current_index] = answer
+        session['survey_answers'] = answers
 
         if current_index < len(questions) - 1:
             return redirect(url_for('survey', q=current_index + 1))
         else:
+            # Elaborazione risultati
             for key in destinations:
                 destinations[key] = 0
             for i, question in enumerate(questions):
-                ans = session['survey_answers'][i]
+                ans = answers[i]
                 if ans in question["options"]:
                     for city, pts in question["options"][ans].items():
                         destinations[city] += pts
                 else:
                     print("KeyError: La risposta non è valida:", repr(ans))
+
             max_score = max(destinations.values())
             best_destinations = [city for city, score in destinations.items() if score == max_score]
             chosen_destination = random.choice(best_destinations)
             session.pop('survey_answers', None)
             return redirect(url_for('destination', city=chosen_destination))
-    
+
     current_question = questions[q_index]
     return render_template('survey.html',
                            question=current_question,
