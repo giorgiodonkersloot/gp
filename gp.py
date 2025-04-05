@@ -284,12 +284,19 @@ def survey():
     q_index = request.args.get('q', 0, type=int)
     if 'survey_answers' not in session:
         session['survey_answers'] = [None] * len(questions)
+        
     if request.method == 'POST':
         current_index = int(request.form.get('question_index'))
         answer = request.form.get('answer').strip()
         answers = session.get('survey_answers', [None] * len(questions))
-        answers[current_index] = answer
-        session['survey_answers'] = answers
+        
+        if 0 <= current_index < len(answers):
+            answers[current_index] = answer
+            session['survey_answers'] = answers
+        else:
+            print("Indice domanda fuori range, si continua comunque.")
+            return "Errore: indice domanda non valido", 400
+
         if current_index < len(questions) - 1:
             return redirect(url_for('survey', q=current_index + 1))
         else:
@@ -307,6 +314,7 @@ def survey():
             chosen_destination = random.choice(best_destinations)
             session.pop('survey_answers', None)
             return redirect(url_for('destination', city=chosen_destination))
+    
     current_question = questions[q_index]
     return render_template('survey.html',
                            question=current_question,
@@ -314,7 +322,6 @@ def survey():
                            total=len(questions),
                            form_action="/survey")
 
-@app.route('/localsurvey', methods=['GET', 'POST'])
 def localsurvey():
     q_index = request.args.get('q', 0, type=int)
     if 'local_survey_answers' not in session:
