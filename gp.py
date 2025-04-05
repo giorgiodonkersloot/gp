@@ -381,6 +381,11 @@ def preferiti():
     favorites = session.get('favorites', [])
     return render_template('preferiti.html', favorites=favorites)
 
+@app.route('/lista')
+def lista():
+    # Mostra tutte le destinazioni in blocchi (4 per riga)
+    destinations_list = list(destinations.keys())
+    return render_template('list.html', destinations=destinations_list)
 
 @app.route('/about')
 def about():
