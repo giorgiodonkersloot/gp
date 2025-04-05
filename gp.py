@@ -218,6 +218,7 @@ questions = [
             "Qualsiasi lingua": {"Milano": 5, "CERN": 1}
         }
     },
+
 #6
     {
         "question": "Quanto deve essere conosiuta la destinazione (in base al turismo)?",
@@ -229,7 +230,7 @@ questions = [
     },
 #7
     {
-        "question": "x",
+        "question": "Quanto turistica deve essere la città",
         "options": {
             "Famosa": {"Napoli": 5, "Roma": 3},
             "Medioconosciuta": {"Roma": 5, "Firenze": 3},
