@@ -165,22 +165,26 @@ local_questions = [
 
 # Domande per il sondaggio in Europa
 questions = [
+#1
     {
-        "question": "Qual è il principale obiettivo del viaggio?",
+        "question": "Qual è il clima desiderato per il viaggio?",
         "options": {
-            "Cultura": {"Roma": 5, "Firenze": 3},
-            "Scienza": {"CERN": 5, "Milano": 2},
-            "Divertimento": {"Napoli": 5, "Milano": 3}
+            "Indifferente": {},
+            "Caldo": {"CERN": 5, "Milano": 2},
+            "Freddo": {"Napoli": 5, "Milano": 3}
+            "Moderato": {"Napoli": 5, "Milano": 3}
         }
     },
+#2
     {
-        "question": "Qual è il budget della scuola?",
+        "question": "Qual è il metodo di trasporto voluto (il tipo di mezzo influisce sul prezzo)?",
         "options": {
-            "Basso": {"Napoli": 5, "Milano": 3},
-            "Medio": {"Firenze": 4, "Roma": 3},
-            "Alto": {"CERN": 5, "Roma": 4}
+            "Pullman": {"Napoli": 5, "Milano": 3},
+            "Treno": {"Firenze": 4, "Roma": 3},
+            "Aereo": {"CERN": 5, "Roma": 4}
         }
     },
+#3
     {
         "question": "Quanto deve durare il viaggio?",
         "options": {
@@ -189,22 +193,85 @@ questions = [
             "Più di 4 giorni": {"Napoli": 5, "Roma": 4}
         }
     },
+#4
     {
-        "question": "Quale tipo di attività preferisci durante il viaggio?",
+        "question": "Qual è la materia da approfondire?",
         "options": {
-            "Visita musei": {"Firenze": 4, "Roma": 3},
-            "Attività all'aperto": {"Napoli": 4, "Milano": 2},
-            "Shopping": {"Milano": 5, "Roma": 2}
+            "Storia e Storia dell'arte": {"Firenze": 4, "Roma": 3},
+            "Scienze": {"Napoli": 4, "Milano": 2},
+            "Cultura generale/Esperienza": {"Milano": 5, "Roma": 2}
+            "Lingua inglese": {"Milano": 5, "Roma": 2}
+            "Lingua francese": {"Milano": 5, "Roma": 2}
+            "Lingua spagnola": {"Milano": 5, "Roma": 2}
+            "Lingua tedesca": {"Milano": 5, "Roma": 2}
+
+
         }
     },
+#5
     {
-        "question": "Quale cibo ti piace di più?",
+        "question": "quanto è importante la differenza linguistica?",
         "options": {
-            "Pizza": {"Napoli": 5, "Roma": 3},
-            "Pasta": {"Roma": 5, "Firenze": 3},
-            "Risotto": {"Milano": 5, "CERN": 1}
+            "Voglio l'italiano": {"Napoli": 5, "Roma": 3},
+            "L'inglese va bene": {"Roma": 5, "Firenze": 3},
+            "Classiche lingue di indirizzo": {"Milano": 5, "CERN": 1}
+            "Qualsiasi lingua": {"Milano": 5, "CERN": 1}
         }
     },
+#6
+    {
+        "question": "Quanto deve essere conosiuta la destinazione (in base al turismo)?",
+        "options": {
+            "Famosa": {"Napoli": 5, "Roma": 3},
+            "Medioconosciuta": {"Roma": 5, "Firenze": 3},
+            "Poco conosciuta": {"Milano": 5, "CERN": 1}
+        }
+    },
+#7
+    {
+        "question": "x",
+        "options": {
+            "Famosa": {"Napoli": 5, "Roma": 3},
+            "Medioconosciuta": {"Roma": 5, "Firenze": 3},
+            "Poco conosciuta": {"Milano": 5, "CERN": 1}
+        }
+    },
+#8
+    {
+        "question": "C'è un'attivita particolare tra le seguenti che si vuole svolgere?",
+        "options": {
+            "Bagno": {"Napoli": 5, "Roma": 3},
+            "Sport specifici": {"Roma": 5, "Firenze": 3},
+            "Trekking": {"Milano": 5, "CERN": 1}
+        }
+    },
+#9
+    {
+        "question": "Quanti musei locali si vogliono visitare?",
+        "options": {
+            "Tanti": {"Napoli": 5, "Roma": 3},
+            "Qualcosa sì": {"Roma": 5, "Firenze": 3},
+            "Indifferente": {"Milano": 5, "CERN": 1}
+        }
+    },
+#10
+    {
+        "question": "C'è uno stato in particolare da escludere?",
+        "options": {
+            "Inghilterra": {"Napoli": 5, "Roma": 3},
+            "Italia": {"Roma": 5, "Firenze": 3},
+            "Spagna": {"Milano": 5, "CERN": 1}
+            "Portogallo": {"Milano": 5, "CERN": 1}
+            "Francia": {"Milano": 5, "CERN": 1}
+            "Germania": {"Milano": 5, "CERN": 1}
+            "Paesi Bassi": {"Milano": 5, "CERN": 1}
+            "Est europa": {"Milano": 5, "CERN": 1}
+
+            
+        }
+    },
+
+    
 ]
 
 @app.route('/')
