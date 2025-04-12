@@ -72,8 +72,6 @@ destinations = {
     "Bilbao": 0,
     "Siviglia": 0,
     "Granada": 0,
-    "Cordova": 0,
-    "Toledo": 0,
     "Malaga": 0,
     # Inghilterra
     "York": 0,
@@ -211,8 +209,6 @@ questions = [
                                             "Bilbao": 7,
                                             "Siviglia": 9,
                                             "Granada": 8,
-                                            "Cordova": 8,
-                                            "Toledo": 9,
                                             "Malaga": 9,
                                             # Inghilterra
                                             "York": 3,
@@ -284,8 +280,6 @@ questions = [
                                             "Bilbao": 4,
                                             "Siviglia": 2,
                                             "Granada": 2,
-                                            "Cordova": 2,
-                                            "Toledo":2,
                                             "Malaga": 1,
                                             # Inghilterra
                                             "York": 9,
@@ -359,8 +353,6 @@ questions = [
                                             "Bilbao": 6.5,
                                             "Siviglia": 5,
                                             "Granada": 5,
-                                            "Cordova": 5,
-                                            "Toledo": 5,
                                             "Malaga": 5,
                                             # Inghilterra
                                             "York": 3,
@@ -443,8 +435,6 @@ questions = [
                                         "Bilbao": 1,
                                         "Siviglia": 1,
                                         "Granada": 1,
-                                        "Cordova": 1,
-                                        "Toledo": 2,
                                         "Malaga": 1,
                                         # Inghilterra
                                         "York": -2,
@@ -512,8 +502,6 @@ questions = [
                                         "Bilbao": 1,
                                         "Siviglia": 1,
                                         "Granada": 1,
-                                        "Cordova": 1,
-                                        "Toledo": 1,
                                         "Malaga": 1,
                                         # Inghilterra
                                         "York": -5,
@@ -587,8 +575,6 @@ questions = [
                                         "Bilbao": 8,
                                         "Siviglia": 8,
                                         "Granada": 8,
-                                        "Cordova": 8,
-                                        "Toledo": 9,
                                         "Malaga": 8,
                                         # Inghilterra
                                         "York": 9,
@@ -661,8 +647,6 @@ questions = [
                                         "Bilbao": 2,
                                         "Siviglia": 2,
                                         "Granada": 2,
-                                        "Cordova": 2,
-                                        "Toledo": 0,
                                         "Malaga": 2,
                                         # Inghilterra
                                         "York": 0,
@@ -730,8 +714,6 @@ questions = [
                                         "Bilbao": 8,
                                         "Siviglia": 8,
                                         "Granada": 8,
-                                        "Cordova": 7,
-                                        "Toledo": 8,
                                         "Malaga": 8,
                                         # Inghilterra
                                         "York": 8,
@@ -800,8 +782,6 @@ questions = [
                                         "Bilbao": 7,
                                         "Siviglia": 8,
                                         "Granada": 7,
-                                        "Cordova": 6,
-                                        "Toledo": 7,
                                         "Malaga": 7,
                                         # Inghilterra
                                         "York": 9,
@@ -875,8 +855,6 @@ questions = [
                                         "Bilbao": 14,
                                         "Siviglia": 15,
                                         "Granada": 15,
-                                        "Cordova": 14,
-                                        "Toledo": 15,
                                         "Malaga": 12,
                                         # Inghilterra
                                         "York": 14,
@@ -945,8 +923,6 @@ questions = [
                                         "Bilbao": 6,
                                         "Siviglia": 6,
                                         "Granada": 5,
-                                        "Cordova": 4,
-                                        "Toledo": 4,
                                         "Malaga": 6,
                                         # Inghilterra
                                         "York": 7,
@@ -1015,8 +991,6 @@ questions = [
                                         "Bilbao": 14,
                                         "Siviglia": 15,
                                         "Granada": 15,
-                                        "Cordova": 12,
-                                        "Toledo": 12,
                                         "Malaga": 14,
                                         # Inghilterra
                                         "York": 12,
@@ -1091,8 +1065,6 @@ questions = [
                                         "Bilbao": 1000,
                                         "Siviglia": 1000,
                                         "Granada": 1000,
-                                        "Cordova": 1000,
-                                        "Toledo": 1000,
                                         "Malaga": 1000,
                 },
             "Lingua tedesca": {
@@ -1216,8 +1188,6 @@ questions = [
 "Carcassonne": 8,
 "Ajaccio": 8,
 "Granada": 8,
-"Cordova": 8,
-"Toledo": 8,
 "Brighton": 8,
 "CERN": 8,
 "Tirana": 8,
