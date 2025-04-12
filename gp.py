@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, session, flash
+4sfrom flask import Flask, render_template, request, redirect, url_for, session, flash
 import random
 import smtplib
 
@@ -845,13 +845,273 @@ questions = [
     {
         "question": "Qual è la materia da approfondire?",
         "options": {
-            "Storia e Storia dell'arte": {"Firenze": 4, "Roma": 3},
-            "Scienze": {"Napoli": 4, "Milano": 2},
-            "Cultura generale/Esperienza": {"Milano": 5, "Roma": 2},
-            "Lingua inglese": {"Milano": 5, "Roma": 2},
-            "Lingua francese": {"Milano": 5, "Roma": 2},
-            "Lingua spagnola": {"Milano": 5, "Roma": 2},
-            "Lingua tedesca": {"Milano": 5, "Roma": 2}
+            "Storia e Storia dell'arte": {
+                                        # Francia
+                                        "Parigi": 15,
+                                        "Nizza": 6,
+                                        "Montpellier": 7,
+                                        "Marsiglia": 8,
+                                        "Lione": 13,
+                                        "Lille": 10,
+                                        "Bordeaux": 11,
+                                        "Carcassonne": 14,
+                                        "Tolosa": 8,
+                                        "Strasburgo": 12,
+                                        "Nantes": 9,
+                                        "Ajaccio": 7,
+                                        # Germania
+                                        "Berlino": 14,
+                                        "Amburgo": 10,
+                                        "Monaco": 13,
+                                        "Stoccarda": 9,
+                                        "Francoforte": 12,
+                                        "Colonia": 13,
+                                        "Norimberga": 11,
+                                        "Dresda": 15,
+                                        # Spagna
+                                        "Barcellona": 15,
+                                        "Madrid": 15,
+                                        "Valencia": 12,
+                                        "Bilbao": 14,
+                                        "Siviglia": 15,
+                                        "Granada": 15,
+                                        "Cordova": 14,
+                                        "Toledo": 15,
+                                        "Malaga": 12,
+                                        # Inghilterra
+                                        "York": 14,
+                                        "Liverpool": 12,
+                                        "Bath": 15,
+                                        "Oxford": 15,
+                                        "Londra": 15,
+                                        "Cambridge": 15,
+                                        "Manchester": 13,
+                                        "Brighton": 10,
+                                        # Paesi Bassi
+                                        "Amsterdam": 15,
+                                        "Utrecht": 12,
+                                        "Rotterdam-Aia": 11,
+                                        "Groningen": 10,
+                                        # EUcentrale
+                                        "Praga": 15,
+                                        "Vienna": 15,
+                                        "Bratislava": 9,
+                                        "Varsavia": 13,
+                                        "Cracovia": 13,
+                                        # Svizzera, Portogallo, Danimarca
+                                        "CERN": 4,
+                                        "Copenaghen": 13,
+                                        "Zurigo": 12,
+                                        "Berna": 13,
+                                        "Lisbona": 15,
+                                        "Porto": 14,
+                                        # Balcani
+                                        "Budapest": 14,
+                                        "Sarajevo": 10,
+                                        "Tirana": 8,
+                                        "Atene": 15,
+                                        "Delfi": 15,
+                                        "Zagabria": 12,
+                                        "Lubiana": 11,
+
+                },
+            "Scienze": {
+                                        # Francia
+                                        "Parigi": 14,
+                                        "Nizza": 7,
+                                        "Montpellier": 7,
+                                        "Marsiglia": 8,
+                                        "Lione": 10,
+                                        "Lille": 6,
+                                        "Bordeaux": 6,
+                                        "Carcassonne": 3,
+                                        "Tolosa": 12,
+                                        "Strasburgo": 10,
+                                        "Nantes": 8,
+                                        "Ajaccio": 4,
+                                        # Germania
+                                        "Berlino": 13,
+                                        "Amburgo": 9,
+                                        "Monaco": 15,
+                                        "Stoccarda": 10,
+                                        "Francoforte": 10,
+                                        "Colonia": 8,
+                                        "Norimberga": 7,
+                                        "Dresda": 8,
+                                        # Spagna
+                                        "Barcellona": 14,
+                                        "Madrid": 13,
+                                        "Valencia": 15,
+                                        "Bilbao": 6,
+                                        "Siviglia": 6,
+                                        "Granada": 5,
+                                        "Cordova": 4,
+                                        "Toledo": 4,
+                                        "Malaga": 6,
+                                        # Inghilterra
+                                        "York": 7,
+                                        "Liverpool": 8,
+                                        "Bath": 5,
+                                        "Oxford": 15,
+                                        "Londra": 15,
+                                        "Cambridge": 15,
+                                        "Manchester": 10,
+                                        "Brighton": 7,
+                                        # Paesi Bassi
+                                        "Amsterdam": 14,
+                                        "Utrecht": 8,
+                                        "Rotterdam-Aia": 9,
+                                        "Groningen": 7,
+                                        # EUcentrale
+                                        "Praga": 10,
+                                        "Vienna": 9,
+                                        "Bratislava": 5,
+                                        "Varsavia": 8,
+                                        "Cracovia": 7,
+                                        # Svizzera, Portogallo, Danimarca
+                                        "CERN": 15,
+                                        "Copenaghen": 12,
+                                        "Zurigo": 12,
+                                        "Berna": 8,
+                                        "Lisbona": 7,
+                                        "Porto": 6,
+                                        # Balcani
+                                        "Budapest": 9,
+                                        "Sarajevo": 9,
+                                        "Tirana": 4,
+                                        "Atene": 6,
+                                        "Delfi": 4,
+                                        "Zagabria": 6,
+                                        "Lubiana": 7,
+
+                },
+            "Cultura generale/Esperienza": {
+                                        # Francia
+                                        "Parigi": 14,
+                                        "Nizza": 14,
+                                        "Montpellier": 13,
+                                        "Marsiglia": 13,
+                                        "Lione": 13,
+                                        "Lille": 9,
+                                        "Bordeaux": 14,
+                                        "Carcassonne": 10,
+                                        "Tolosa": 12,
+                                        "Strasburgo": 11,
+                                        "Nantes": 13,
+                                        "Ajaccio": 11,
+                                        # Germania
+                                        "Berlino": 15,
+                                        "Amburgo": 12,
+                                        "Monaco": 14,
+                                        "Stoccarda": 12,
+                                        "Francoforte": 12,
+                                        "Colonia": 14,
+                                        "Norimberga": 13,
+                                        "Dresda": 13,
+                                        # Spagna
+                                        "Barcellona": 15,
+                                        "Madrid": 15,
+                                        "Valencia": 15,
+                                        "Bilbao": 14,
+                                        "Siviglia": 15,
+                                        "Granada": 15,
+                                        "Cordova": 12,
+                                        "Toledo": 12,
+                                        "Malaga": 14,
+                                        # Inghilterra
+                                        "York": 12,
+                                        "Liverpool": 13,
+                                        "Bath": 14,
+                                        "Oxford": 15,
+                                        "Londra": 15,
+                                        "Cambridge": 15,
+                                        "Manchester": 14,
+                                        "Brighton": 14,
+                                        # Paesi Bassi
+                                        "Amsterdam": 15,
+                                        "Utrecht": 13,
+                                        "Rotterdam-Aia": 13,
+                                        "Groningen": 12,
+                                        # EUcentrale
+                                        "Praga": 15,
+                                        "Vienna": 15,
+                                        "Bratislava": 12,
+                                        "Varsavia": 13,
+                                        "Cracovia": 14,
+                                        # Svizzera, Portogallo, Danimarca
+                                        "CERN": 6,
+                                        "Copenaghen": 15,
+                                        "Zurigo": 14,
+                                        "Berna": 13,
+                                        "Lisbona": 15,
+                                        "Porto": 15,
+                                        # Balcani
+                                        "Budapest": 15,
+                                        "Sarajevo": 12,
+                                        "Tirana": 10,
+                                        "Atene": 15,
+                                        "Delfi": 8,
+                                        "Zagabria": 12,
+                                        "Lubiana": 13,
+
+                },
+            "Lingua inglese": {
+                                        
+                                        # Inghilterra
+                                        "York": 1000,
+                                        "Liverpool": 1000,
+                                        "Bath": 1000,
+                                        "Oxford": 1000,
+                                        "Londra": 1000,
+                                        "Cambridge": 1000,
+                                        "Manchester": 1000,
+                                        "Brighton": 1000,
+                                        
+                },
+            "Lingua francese": {
+                                        # Francia
+                                        "Parigi": 1000,
+                                        "Nizza": 1000,
+                                        "Montpellier": 1000,
+                                        "Marsiglia": 1000,
+                                        "Lione": 1000,
+                                        "Lille": 1000,
+                                        "Bordeaux": 1000,
+                                        "Carcassonne": 1000,
+                                        "Tolosa": 1000,
+                                        "Strasburgo": 1000,
+                                        "Nantes": 1000,
+                                        "Ajaccio": 1000,
+                },
+            "Lingua spagnola": {
+                                        # Spagna
+                                        "Barcellona": 1000,
+                                        "Madrid": 1000,
+                                        "Valencia": 1000,
+                                        "Bilbao": 1000,
+                                        "Siviglia": 1000,
+                                        "Granada": 1000,
+                                        "Cordova": 1000,
+                                        "Toledo": 1000,
+                                        "Malaga": 1000,
+                },
+            "Lingua tedesca": {
+                                        
+                                        # Germania
+                                        "Berlino": 1000,
+                                        "Amburgo": 1000,
+                                        "Monaco": 1000,
+                                        "Stoccarda": 1000,
+                                        "Francoforte": 1000,
+                                        "Colonia": 1000,
+                                        "Norimberga": 1000,
+                                        "Dresda": 1000,
+                                        "CERN": 1000,
+                                        "Zurigo": 1000,
+                                        "Berna": 1000,
+                                        "Vienna": 1000,
+                                      
+                }
 
 
         }
@@ -860,10 +1120,10 @@ questions = [
     {
         "question": "quanto è importante la differenza linguistica?",
         "options": {
-            "Voglio l'italiano": {"Napoli": 5, "Roma": 3},
-            "L'inglese va bene": {"Roma": 5, "Firenze": 3},
-            "Classiche lingue di indirizzo": {"Milano": 5, "CERN": 1},
-            "Qualsiasi lingua": {"Milano": 5, "CERN": 1}
+            "Solo inglese": {"Roma": 5, "Firenze": 3},
+            "Qualsiasi lingua va bene": {"Milano": 5, "CERN": 1}
+            "Ho scelto una lingua nella domanda precedente": {}
+ 
         }
     },
 
@@ -898,23 +1158,87 @@ questions = [
     {
         "question": "Quanti musei locali si vogliono visitare?",
         "options": {
-            "Tanti": {"Napoli": 5, "Roma": 3},
-            "Qualcosa sì": {"Roma": 5, "Firenze": 3},
-            "Indifferente": {"Milano": 5, "CERN": 1}
+            "Tanti": {
+"Parigi": 9,
+"Berlino": 9,
+"Monaco": 8,
+"Dresda": 8,
+"Madrid": 9,
+"Barcellona": 9,
+"Siviglia": 8,
+"Londra": 9,
+"Oxford": 9,
+"Cambridge": 9,
+"Liverpool": 8,
+"Amsterdam": 9,
+"Groningen": 8,
+"Praga": 8,
+"Vienna": 9,
+"Budapest": 8,
+"Atene": 9,
+"Lisbona": 8,
+"Copenaghen": 8,
+                },
+            "Qualcosa sì": {
+"Nizza": 8,
+"Marsiglia": 8,
+"Lione": 8,
+"Lille": 8,
+"Bordeaux": 8,
+"Tolosa": 8,
+"Strasburgo": 8,
+"Nantes": 8,
+"Amburgo": 8,
+"Stoccarda": 8,
+"Francoforte": 8,
+"Colonia": 8,
+"Norimberga": 8,
+"Valencia": 8,
+"Bilbao": 8,
+"Malaga": 8,
+"York": 8,
+"Bath": 8,
+"Manchester": 8,
+"Utrecht": 8,
+"Rotterdam-Aia": 8,
+"Bratislava": 8,
+"Varsavia": 8,
+"Cracovia": 8,
+"Zurigo": 8,
+"Berna": 8,
+"Porto": 8,
+"Sarajevo": 8,
+"Zagabria": 8,
+"Lubiana": 8,
+                },
+            "Indifferente": {
+"Montpellier": 8,
+"Carcassonne": 8,
+"Ajaccio": 8,
+"Granada": 8,
+"Cordova": 8,
+"Toledo": 8,
+"Brighton": 8,
+"CERN": 8,
+"Tirana": 8,
+"Delfi": 8,
+                }
         }
     },
 #10
-    {
-        "question": "C'è uno stato in particolare da escludere?",
-        "options": {
-            "Inghilterra": {"Napoli": 5, "Roma": 3},
-            "Italia": {"Roma": 5, "Firenze": 3},
-            "Spagna": {"Milano": 5, "CERN": 1},
-            "Portogallo": {"Milano": 5, "CERN": 1},
-            "Francia": {"Milano": 5, "CERN": 1},
-            "Germania": {"Milano": 5, "CERN": 1},
-            "Paesi Bassi": {"Milano": 5, "CERN": 1},
-            "Est europa": {"Milano": 5, "CERN": 1}
+    #{
+#        "question": "C'è uno stato in particolare da escludere?",
+#        "options": {
+#            "Inghilterra": {"Napoli": 5, "Roma": 3},
+#            "Italia": {"Roma": 5, "Firenze": 3},
+#            "Spagna": {"Milano": 5, "CERN": 1},
+#            "Portogallo": {"Milano": 5, "CERN": 1},
+#            "Francia": {"Milano": 5, "CERN": 1},
+#            "Germania": {"Milano": 5, "CERN": 1},
+#            "Paesi Bassi": {"Milano": 5, "CERN": 1},
+#            "Est europa": {"Milano": 5, "CERN": 1}
+#            "Tutti vanno bene": {}
+
 
             
         }
