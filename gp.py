@@ -318,7 +318,7 @@ questions = [
                                             "Lubiana": 5,
 
                 },
-            "Moderato": {
+            "Mite": {
                                             "Pavia": 0,
                                             "Milano": 0,
                                             "Roma": 0,
@@ -1090,22 +1090,23 @@ questions = [
     },
 #5
     {
-        "question": "quanto è importante la differenza linguistica?",
+        "question": "Nel paese ospitante..",
         "options": {
-            "Solo inglese": {"Roma": 5, "Firenze": 3},
+            "Devo poter comunicare in inglese": {"Roma": 5, "Firenze": 3},
             "Qualsiasi lingua va bene": {"Milano": 5, "CERN": 1},
-            "Ho scelto una lingua nella domanda precedente": {}
+            "Ho scelto una lingua di indirizzo nella domanda precedente": {}
  
         }
     },
 
 #6
     {
-        "question": "Quanto deve essere conosciuta la destinazione (in base al turismo)?",
+        "question": "Prediligi la vicinanza di uno dei seguenti ambienti naturali",
         "options": {
-            "Famosa": {"Napoli": 5, "Roma": 3},
-            "Abbastanza conosciuta": {"Roma": 5, "Firenze": 3},
-            "Poco conosciuta": {"Milano": 5, "CERN": 1}
+            "Mare": {"Napoli": 5, "Roma": 3},
+            "Montagna": {"Roma": 5, "Firenze": 3},
+            "Collina": {"Roma": 5, "Firenze": 3},            
+            "Indifferente": {"Milano": 5, "CERN": 1}
         }
     },
 #7
@@ -1113,7 +1114,7 @@ questions = [
         "question": "Quanto turistica deve essere la città",
         "options": {
             "Famosa": {"Napoli": 5, "Roma": 3},
-            "Medioconosciuta": {"Roma": 5, "Firenze": 3},
+            "Abbastanza conosciuta": {"Roma": 5, "Firenze": 3},
             "Poco conosciuta": {"Milano": 5, "CERN": 1}
         }
     },
@@ -1121,9 +1122,10 @@ questions = [
     {
         "question": "C'è un'attivita particolare tra le seguenti che si vuole svolgere?",
         "options": {
-            "Bagno": {"Napoli": 5, "Roma": 3},
-            "Sport specifici": {"Roma": 5, "Firenze": 3},
-            "Trekking": {"Milano": 5, "CERN": 1}
+            "Vita da spieggia": {"Napoli": 5, "Roma": 3},
+            "Sci": {"Roma": 5, "Firenze": 3},
+            "Trekking": {"Roma": 5, "Firenze": 3},
+            "indifferente": {"Milano": 5, "CERN": 1}
         }
     },
 #9
