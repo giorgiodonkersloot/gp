@@ -1,4 +1,4 @@
-4sfrom flask import Flask, render_template, request, redirect, url_for, session, flash
+from flask import Flask, render_template, request, redirect, url_for, session, flash
 import random
 import smtplib
 
@@ -1121,7 +1121,7 @@ questions = [
         "question": "quanto è importante la differenza linguistica?",
         "options": {
             "Solo inglese": {"Roma": 5, "Firenze": 3},
-            "Qualsiasi lingua va bene": {"Milano": 5, "CERN": 1}
+            "Qualsiasi lingua va bene": {"Milano": 5, "CERN": 1},
             "Ho scelto una lingua nella domanda precedente": {}
  
         }
@@ -1226,18 +1226,18 @@ questions = [
         }
     },
 #10
-    #{
-#        "question": "C'è uno stato in particolare da escludere?",
-#        "options": {
-#            "Inghilterra": {"Napoli": 5, "Roma": 3},
-#            "Italia": {"Roma": 5, "Firenze": 3},
-#            "Spagna": {"Milano": 5, "CERN": 1},
-#            "Portogallo": {"Milano": 5, "CERN": 1},
-#            "Francia": {"Milano": 5, "CERN": 1},
-#            "Germania": {"Milano": 5, "CERN": 1},
-#            "Paesi Bassi": {"Milano": 5, "CERN": 1},
-#            "Est europa": {"Milano": 5, "CERN": 1}
-#            "Tutti vanno bene": {}
+    {
+        "question": "C'è uno stato in particolare da escludere?",
+        "options": {
+            "Inghilterra": {"Napoli": 5, "Roma": 3},
+            "Italia": {"Roma": 5, "Firenze": 3},
+            "Spagna": {"Milano": 5, "CERN": 1},
+            "Portogallo": {"Milano": 5, "CERN": 1},
+            "Francia": {"Milano": 5, "CERN": 1},
+            "Germania": {"Milano": 5, "CERN": 1},
+            "Paesi Bassi": {"Milano": 5, "CERN": 1},
+            "Est europa": {"Milano": 5, "CERN": 1},
+            "Tutti vanno bene": {}
 
 
             
