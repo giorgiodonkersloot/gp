@@ -1101,10 +1101,10 @@ questions = [
 
 #6
     {
-        "question": "Quanto deve essere conosiuta la destinazione (in base al turismo)?",
+        "question": "Quanto deve essere conosciuta la destinazione (in base al turismo)?",
         "options": {
             "Famosa": {"Napoli": 5, "Roma": 3},
-            "Medioconosciuta": {"Roma": 5, "Firenze": 3},
+            "Abbastanza conosciuta": {"Roma": 5, "Firenze": 3},
             "Poco conosciuta": {"Milano": 5, "CERN": 1}
         }
     },
