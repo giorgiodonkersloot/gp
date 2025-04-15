@@ -1286,7 +1286,7 @@ questions = [
                                                             # Paesi Bassi
                                                             "Amsterdam": 15,
                                                             "Utrecht": 6,
-                                                            "Rotterdam-Aia": 13,
+                                                            "Rotterdam-Aia": 11,
                                                             "Groningen": 5,
                                                             # EUcentrale
                                                             "Praga": 15,
@@ -1300,7 +1300,7 @@ questions = [
                                                             "Zurigo": 12,
                                                             "Berna": 12,
                                                             "Lisbona": 15,
-                                                            "Porto": 12,
+                                                            "Porto": 10,
                                                             # Balcani
                                                             "Budapest": 15,
                                                             "Sarajevo": 7,
